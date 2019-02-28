@@ -1,2 +1,2 @@
 # lgs-school-website
-One page website for primary schools 
+One page, dynamic, primary school website developed with laravel
