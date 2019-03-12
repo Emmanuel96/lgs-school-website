@@ -88,12 +88,12 @@
           
           <div class="col-md-6">
   			<img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
-            <h4 class="service-heading"> Addo Campus </h4>
+            <h4 class="service-heading"> {{$Campus_name1}} </h4>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
           </div>
           <div class="col-md-6">
 			<img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
-            <h4 class="service-heading"> Badore Campus </h4>
+            <h4 class="service-heading"> {{Campus_name2}} </h4>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
           </div>
         </div>

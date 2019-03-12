@@ -32,35 +32,36 @@
                   </li>
                   <li><a><i class="fa fa-university"></i> Campus <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="lgs_edit_addo_campus.html">Addo Campus</a></li>
-                      <li><a href="lgs_edit_badore_campus.html">Badore Campus</a></li>
+                      <li><a href="{!! route('admin.addo') !!}">Addo Campus</a></li>
+                      <li><a href="{!! route('admin.badore') !!}">Badore Campus</a></li>
                      
                     </ul>
                   </li>
                   <li><a><i class="fa fa-calendar-o"></i> Events <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="lgs_view_events.html">View Events</a></li>
+                    <li><a href="{!! route('admin.event') !!}"> Edit Events</a></li>
+                      <li><a href="{!! route('admin.eventView') !!}">View Events</a></li>
+                    
+                       
                       
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> About <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="lgs_view_about.html">View About</a></li>
+                    <li><a href="{!! route('admin.about') !!}">Edit About</a></li>
+                      <li><a href="{!! route('admin.aboutView') !!}">View About</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-group"></i> Team <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
+                      <li><a href="{!! route('admin.team') !!}">Edit Team</a></li>
+                      <li><a href="{!! route('admin.teamView') !!}">View Team</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-youtube-play"></i>Youtube Channels <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="lgs_new_video.html">New Video</a></li>
-                      <li><a href="lgs_view_videos.html">View Videos</a></li>
+                      <li><a href="{!! route('admin.youtubeNew') !!}">New Video</a></li>
+                      <li><a href="{!! route('admin.youtubeView') !!}">View Videos</a></li>
                     </ul>
                   </li>
                 </ul>
