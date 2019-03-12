@@ -48,7 +48,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask">
                               <p>Your Text</p>
                               <div class="tools tools-bottom">
@@ -66,7 +66,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask">
                               <p>Your Text</p>
                               <div class="tools tools-bottom">
@@ -84,7 +84,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask">
                               <p>Your Text</p>
                               <div class="tools tools-bottom">
@@ -102,7 +102,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask">
                               <p>Your Text</p>
                               <div class="tools tools-bottom">
@@ -120,7 +120,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask">
                               <p>Your Text</p>
                               <div class="tools tools-bottom">
@@ -140,7 +140,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -159,7 +159,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -178,7 +178,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -197,7 +197,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
@@ -216,7 +216,7 @@
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
+                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
                             <div class="mask no-caption">
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>

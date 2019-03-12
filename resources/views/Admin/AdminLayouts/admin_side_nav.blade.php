@@ -41,7 +41,7 @@
                     <ul class="nav child_menu">
                     <li><a href="{!! route('admin.event') !!}"> Edit Events</a></li>
                       <li><a href="{!! route('admin.eventView') !!}">View Events</a></li>
-                      <li><a href="{!! route('admin.eventImage') !!}"> View Images</a></li>
+                    
                        
                       
                     </ul>
