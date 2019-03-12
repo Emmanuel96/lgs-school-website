@@ -17,7 +17,10 @@ class AdminController extends Controller
 
     public function editHeader()
     {
+
         $header_data = DB::table('header')->selectRaw('*')->get();
+        
+
         return view('Admin.header', ['welcome_text'=> $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]); 
     }
 
@@ -70,12 +73,18 @@ class AdminController extends Controller
 
     public function editAddo()
     {
-        return view('Admin.addo');
+        $campus_data= DB::table('addo')->selectctRAW('*')->get();
+        return view('Admin.addo' , ['campus_name1'=> $campus_data[0]->campus_name1,
+         'campus_description1' => $campus_data[0]->campus_description1, 
+         'campus_image1' => $campus_data[0]->campus_image1]);
     }
 
     public function editBadore()
     {
-        return view('Admin.badore');
+        $campus_data= DB::table('badore')->selectctRAW('*')->get();
+        return view('Admin.addo' , ['campus_name2'=> $badore_data[0]->campus_name2,
+         'campus_description2' => $badore_data[0]->campus_description2, 
+         'campus_image2' => $badore_data[0]->campus_image2]);
     }
 
     public function newYoutubeNew()
