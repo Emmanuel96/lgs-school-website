@@ -77,10 +77,9 @@
 							<td>{!! $about->year_heading !!}</td>
 							<td>{!! $about->year_description !!}</td>
 							<td align= "center">
-								<a href = "{!! route('admin.about') !!}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
-							</td>	
+								<a href = "{{ route('admin.edit_about',[$about->about_id])}}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+              </td>
 						</tr>
-            
                 @endforeach
             </tbody>
 					</table>
@@ -92,3 +91,6 @@
         </div>
         <!-- /page content -->
         @endsection
+
+							</td>
+            

@@ -60,20 +60,21 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="POST" action="{{ route('admin.updateBadore', [$badore_details->badore_id])}}">
+                      <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Campus Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="first-name" name="campus_name2" value="{{$badore_details->campus_name2}}" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "25">Campus Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id="last-name" name="campus_description2" value="{{$badore_details->campus_description2}} " class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
                       <div class="form-group">
