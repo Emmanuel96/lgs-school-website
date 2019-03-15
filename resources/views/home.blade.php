@@ -90,9 +90,9 @@
   			<img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
             <h4 class="service-heading"> {{$campus_name1}} </h4>
             <p class="text-muted">{{$campus_description1}}</p>
-          </div>n/ 
-			<img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
+          </div>
           <div class="col-md-6">
+          <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
             <h4 class="service-heading"> {{$campus_name2}} </h4>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
           </div>
