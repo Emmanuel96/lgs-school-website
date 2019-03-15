@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\header;
 use App\about;
+use App\youtube;
 use DB;
 use Response; 
 
@@ -94,9 +95,38 @@ class AdminController extends Controller
 
     public function showYoutubeView(Request $request)
     {
-        $viewVideos = DB::table('youtube')->get();
-        return view('Admin.youtubeView',['viewVideos'=>$viewVideos]);
+        $viewVideos = youtube::all();
+       // return $viewVideos;
+        return view('Admin.youtubeView')->with(compact('viewVideos'));
     }
+
+    public function editYoutubeVideos($id)
+    {
+        $videos = youtube::where('youtube_id', $id)->first();
+
+
+        return view('Admin.editYoutubeVideos', ['videos'=> $videos]);
+    }
+
+    public function updateYoutubeVideos($id, Request $request)
+    {
+        
+        $videos = youtube::where('youtube_id', $id)->first();
+
+        DB::table('youtube')
+        ->where('youtube_id', $id)
+        ->update([
+            'video_name' => $request->video_name,
+            'youtube_url' => $request->youtube_url,
+            'video_description' => $request->video_description,
+        ]); 
+
+        $videos->save();
+       
+
+        return 'updated successfully!';
+    }
+
 
     public function viewTeam(Request $request)
     {
