@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\header;
+use App\addo; 
+use App\badore; 
+use Notifiable; 
 use App\about;
 use DB;
 use Response; 
@@ -73,18 +76,66 @@ class AdminController extends Controller
 
     public function editAddo()
     {
-        $campus_data= DB::table('addo')->selectctRAW('*')->get();
-        return view('Admin.addo' , ['campus_name1'=> $campus_data[0]->campus_name1,
-         'campus_description1' => $campus_data[0]->campus_description1, 
-         'campus_image1' => $campus_data[0]->campus_image1]);
+        $campus_data= addo::find(1);
+    
+        return view('Admin.addo' , ['campus_data' => $campus_data ]);
+
+    }
+
+    public function post_addo(Request $request)
+    {
+        addo::create([
+            'campus_name1' => $request->campus_name, 
+            'campus_description1' => $request->campus_description, 
+            'campus_image1' => $request->campus_image, 
+        ]);
+        return 'I saved successfully';
+    }
+
+    public function post_badore(Request $request)
+    {
+        badore::create
+        ([
+            'campus_name2' => $request->campus_name, 
+            'campus_description2' => $request->campus_description, 
+            'campus_iamge2' => $request->campus_image
+        ]);
+        return 'I saved successfully';
+    }
+
+    public function addo_gallery()
+    {
+        return 'addo gallery';
+
+    }
+
+    public function badore_gallery()
+    {
+        return 'badore gallery';
+    }
+
+    public function openAccessGallery()
+    {
+        return 'I got here'; 
     }
 
     public function editBadore()
     {
-        $campus_data= DB::table('badore')->selectctRAW('*')->get();
-        return view('Admin.addo' , ['campus_name2'=> $badore_data[0]->campus_name2,
-         'campus_description2' => $badore_data[0]->campus_description2, 
-         'campus_image2' => $badore_data[0]->campus_image2]);
+
+        $campus_data= badore::find(1); 
+
+        return view('Admin.badore' , ['campus_data'=> $campus_data]);
+    }
+
+    public function viewAddoGallery()
+    {
+        //open gallery page for now
+        return view('addo_gallery');
+    }
+
+    public function viewBadoreGallery()
+    {
+        return view('badore_gallery');
     }
 
     public function newYoutubeNew()
