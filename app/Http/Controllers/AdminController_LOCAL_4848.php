@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse; 
 use App\header;
-use App\addo; 
-use App\badore; 
-use Notifiable; 
 use App\about;
 use App\team;
-use App\youtube;
+use App\badore;
+use App\addo;
 use DB;
 use Response; 
 
@@ -126,77 +123,26 @@ class AdminController extends Controller
 
     public function editBadore($id=1)
     {
-        $campus_data= addo::find(1);
-    
-        return view('Admin.addo' , ['campus_data' => $campus_data ]);
-
-    }
-
-    public function post_addo(Request $request)
-    {
-        $addo_campus = addo::find(1); 
-        $addo_campus->campus_name1 = $request->campus_name;
-        $addo_campus->campus_description1 = $request->campus_description; 
-        $addo_campus->campus_image1 = $request->campus_image;
-
-        $addo_campus->save(); 
-
-        
-        return $this->editAddo(); 
-    }
-
-    public function post_badore(Request $request)
-    {
-        badore::create
-        ([
-            'campus_name2' => $request->campus_name, 
-            'campus_description2' => $request->campus_description, 
-            'campus_iamge2' => $request->campus_image
-        ]);
-        $badore = badore::find(1); 
-        $badore->campus_name2 = $request->campus_name; 
-        $badore->campus_description2 = $request->campus_name; 
-        $badore->campus_image2 = $request->campus_image; 
-
-        $badore->save(); 
-
-        return $this->editBadore();
-    }
-
-    public function addo_gallery()
-    {
-        return view('Admin.addoImages'); 
-
-    }
-
-    public function badore_gallery()
-    {
-        return view('Admin.badoreImages');
-    }
-
-    public function openAccessGallery()
-    {
-        return 'I got here'; 
+        $badore_details = badore::where('badore_id','=',$id)->first();
+        //return $badore_details;
+        //$campus_data= DB::table('badore')->selectctRAW('*')->get();
+        return view('Admin.badore')->with(['badore_details'=>$badore_details]);// , ['campus_name2'=> $badore_data[0]->campus_name2,
+         //'campus_description2' => $badore_data[0]->campus_description2, 
+         //'campus_image2' => $badore_data[0]->campus_image2]);
+         
     }
 
     
     public function updateBadore($id, Request $request)
     {
+        $badore_details = badore::where( 'badore_id', '=', $id)->first();
 
-        $campus_data= badore::find(1); 
+        $badore_details->campus_name2 = $request->campus_name2;
+        $badore_details->campus_description2 = $request->campus_description2;
+    
 
-        return view('Admin.badore' , ['campus_data'=> $campus_data]);
-    }
-
-    public function viewAddoGallery()
-    {
-        //open gallery page for now
-        return view('addo_gallery');
-    }
-
-    public function viewBadoreGallery()
-    {
-        return view('badore_gallery');
+        $badore_details->save();
+        return redirect()->back();
     }
 
     public function newYoutubeNew()
@@ -206,38 +152,9 @@ class AdminController extends Controller
 
     public function showYoutubeView(Request $request)
     {
-        $viewVideos = youtube::all();
-       // return $viewVideos;
-        return view('Admin.youtubeView')->with(compact('viewVideos'));
+        $viewVideos = DB::table('youtube')->get();
+        return view('Admin.youtubeView',['viewVideos'=>$viewVideos]);
     }
-
-    public function editYoutubeVideos($id)
-    {
-        $videos = youtube::where('youtube_id', $id)->first();
-
-
-        return view('Admin.editYoutubeVideos', ['videos'=> $videos]);
-    }
-
-    public function updateYoutubeVideos($id, Request $request)
-    {
-        
-        $videos = youtube::where('youtube_id', $id)->first();
-
-        DB::table('youtube')
-        ->where('youtube_id', $id)
-        ->update([
-            'video_name' => $request->video_name,
-            'youtube_url' => $request->youtube_url,
-            'video_description' => $request->video_description,
-        ]); 
-
-        $videos->save();
-       
-
-        return 'updated successfully!';
-    }
-
 
     public function viewTeam(Request $request)
     {
@@ -258,15 +175,7 @@ class AdminController extends Controller
     }
 
 
-    public function admin_badore_images()
-    {
-        return view('Admin.badoreImages'); 
-    }
 
-    public function admin_addo_images()
-    {
-        return view('Admin.addoImages');
-    }
 
     
 }

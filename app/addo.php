@@ -7,14 +7,11 @@ use Illuminate\Notifications\Notifiable;
 
 class addo extends Model
 {
-    //
-    use Notifiable; 
-
     protected $table = "addo"; 
 
-    protected $primary_key = "Addo_id";
+    protected $primaryKey = "addo_id";
 
     protected $fillable = [
-        'Campus_name1', 'Campus_description1', 'Campus_image1'
+        'campus_name1', 'campus_description1', 'campus_image1'
     ];
 }

@@ -33,9 +33,11 @@ Route::post('/admin/update/addo/{id}', 'AdminController@updateAddo')->name('admi
 Route::get('/admin/edit/badore', 'AdminController@editBadore')->name('admin.badore');
 Route::post('/admin/update/badore/{id}', 'AdminController@updateBadore')->name('admin.updateBadore');
 
+//youtube
 Route::get('/admin/new/youtubeNew', 'AdminController@newYoutubeNew')->name('admin.youtubeNew');
-
-Route::get('/admin/edit/youtubeView', 'AdminController@newYoutubeView')->name('admin.youtubeView');
+Route::get('/admin/show/youtubeView', 'AdminController@showYoutubeView')->name('admin.youtubeView');
+Route::get('/admin/edit/youtube/{id}', 'AdminController@editYoutubeVideos')->name('admin.editYouTube');
+Route::post('/admin/update/youtube/{id}', 'AdminController@updateYoutubeVideos')->name('admin.updateYouTube');
 
 Route::get('/admin/view/teamView', 'AdminController@viewTeam')->name('admin.teamView');
 
@@ -48,4 +50,13 @@ Route::get('/admin/view/eventImage', 'AdminController@viewEventImage')->name('ad
 Route::get('/home', 'HomeController@home')->name('home'); 
 
 Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header');
+
+Route::get('/admin/campus/addo/gallery/1', 'AdminController@addo_gallery');
+
+Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery'); 
+
+Route::post('/admin/addo/edit', 'AdminController@post_addo');
+
+Route::post('/admin/badore/post', 'AdminController@post_badore'); 
+
 

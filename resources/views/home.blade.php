@@ -53,7 +53,7 @@
 			  <a class = "nav-link js-scroll-trigger" href = "#careers"> Careers</a>
 			</li>
 			<li class = "nav-item">
-			  <a class = "nav-link js-scroll-trigger" href= "#youtube-channel"> Youtube Channel</a>
+			  <a class = "nav-link js-scroll-trigger" href= "#youtube-channel"> LordsGate TV</a>
 			</li>
 			
 			<li class="nav-item">
@@ -87,12 +87,17 @@
         <div class="row text-center">
           
           <div class="col-md-6">
-  			<img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
+  			    <img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
             <h4 class="service-heading"> {{$campus_name1}} </h4>
             <p class="text-muted">{{$campus_description1}}</p>
           </div>
+<<<<<<< HEAD
           <div class="col-md-6">
           <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
+=======
+          <div class = "col-md-6">
+		     	  <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
             <h4 class="service-heading"> {{$campus_name2}} </h4>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
           </div>
@@ -482,17 +487,29 @@
                     <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
                     <p class="help-block text-danger"></p>
                   </div>
-                </div>
-                <div class="col-md-6">
-				  <div class="form-group">
+                  <div class="form-group">
                     <input class="form-control" id="name" type="text" placeholder="Position Applying For *" required="required" data-validation-required-message="Please Enter The Position">
                     <p class="help-block text-danger"></p>
                   </div>
+                </div>
+                <div class="col-md-6">
+				          
                   <div class="form-group">
                     <input class="form-control" id="name" type="text" placeholder="Age *" required="required" data-validation-required-message="Please Enter your age">
                     <p class="help-block text-danger"></p>
                   </div>
+                  <div class = "form-group">
+                    <input class = "form-control" id = "CV" type = "file"/>
+                    <p class = "help-block text-danger"></p>
+                  </div>
+
+                  <div class = "form-group">
+                    <input class = "form-control" id = "cover_letter" type = "file"/>
+                    <p class = "help-block text-danger"></p>
+                  </div>
                 </div>
+                
+
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>

@@ -9,7 +9,6 @@ use App\addo;
 use App\badore; 
 use Notifiable; 
 use App\about;
-use App\team;
 use App\youtube;
 use DB;
 use Response; 
@@ -41,31 +40,21 @@ class AdminController extends Controller
         ]);
     }
 
-
-    public function editAbout($id)
+    public function postAbout(Request $request)
     {
-        $about_details = about::where('about_id', $id)->first();
-        return $about_details;
-
-        return view('Admin.about')->with(['about_details'=> $about_details]);     
-    }          
-    public function updateAbout($id, Request $request)
-    {
-        $about_details = about::where( 'about_id', '=', $id)->first();
-        return $about_details;
-        $about_details->year_range = $request->year_range;
-        $about_details->year_heading = $request->year_heading;
-        $about_details->year_description = $request->year_description;
-    
-
-        $about_details->save();
-        return redirect()->back();
+        //save the heder thing
+        About::where('About_id', 1)
+        ->update([
+            'year_range' => $request->year_range, 
+            'year_heading' => $request->year_heading, 
+            'year_description' => $request->year_description, 
+            'display_image'=> $request->display_image,
+        ]);
     }
 
-    public function editPage()
+    public function editAbout()
     {
-       // $page_details = about::where('')
-        return view('Admin.aboutPagedetails');
+        return view('Admin.about');
         
     }
 
@@ -82,49 +71,12 @@ class AdminController extends Controller
         return view('Admin.event');
     }
 
-    public function editTeam($id)
-    {  
-        $team_details = team::where( 'team_id', '=', $id)->first();
-       // return $team_details;
-
-        return view('Admin.team')->with(['team_details'=> $team_details]); 
-    }
-
-    public function updateTeam($id, Request $request)
+    public function editTeam()
     {
-        $team_details = team::where( 'team_id', '=', $id)->first();
-    
-        $team_details->staff_name = $request->staff_name;
-        $team_details->staff_role = $request->staff_role;
-    
-
-        $team_details->save();
-        return redirect()->back();
+        return view('Admin.team');
     }
 
-    public function editAddo($id=1)
-    {
-        $addo_details = addo::where('addo_id','=',$id)->first();
-        //$campus_data= DB::table('addo')->selectctRAW('*')->get();
-        return view('Admin.addo')->with(['addo_details'=>$addo_details]); //,// ['campus_name1'=> $campus_data[0]->campus_name1,
-        /// 'campus_description1' => $campus_data[0]->campus_description1, 
-        // 'campus_image1' => $campus_data[0]->campus_image1]);
-    }
-
-    public function updateAddo($id, Request $request)
-    {
-        $addo_details = addo::where( 'addo_id', '=', $id)->first();
-    
-        $addo_details->campus_name1 = $request->campus_name1;
-        $addo_details->campus_description1 = $request->campus_description1;
-    
-
-        $addo_details->save();
-        return redirect()->back();
-    }
-
-
-    public function editBadore($id=1)
+    public function editAddo()
     {
         $campus_data= addo::find(1);
     
@@ -179,8 +131,7 @@ class AdminController extends Controller
         return 'I got here'; 
     }
 
-    
-    public function updateBadore($id, Request $request)
+    public function editBadore()
     {
 
         $campus_data= badore::find(1); 

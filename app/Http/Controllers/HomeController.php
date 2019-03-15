@@ -13,7 +13,6 @@ class HomeController extends Controller
         $campus_data = DB::table('addo')->selectRaw('*')->get();
         //return $campus_data[0]->campus_name1;
 
-        
         $badore_data = DB::table('badore')->selectRaw('*')->get();
        // return $badore_data[0]->campus_name2;
         

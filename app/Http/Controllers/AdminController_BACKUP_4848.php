@@ -9,8 +9,13 @@ use App\addo;
 use App\badore; 
 use Notifiable; 
 use App\about;
+<<<<<<< HEAD
 use App\team;
+use App\badore;
+use App\addo;
+=======
 use App\youtube;
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
 use DB;
 use Response; 
 
@@ -126,6 +131,15 @@ class AdminController extends Controller
 
     public function editBadore($id=1)
     {
+<<<<<<< HEAD
+        $badore_details = badore::where('badore_id','=',$id)->first();
+        //return $badore_details;
+        //$campus_data= DB::table('badore')->selectctRAW('*')->get();
+        return view('Admin.badore')->with(['badore_details'=>$badore_details]);// , ['campus_name2'=> $badore_data[0]->campus_name2,
+         //'campus_description2' => $badore_data[0]->campus_description2, 
+         //'campus_image2' => $badore_data[0]->campus_image2]);
+         
+=======
         $campus_data= addo::find(1);
     
         return view('Admin.addo' , ['campus_data' => $campus_data ]);
@@ -177,11 +191,22 @@ class AdminController extends Controller
     public function openAccessGallery()
     {
         return 'I got here'; 
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
     }
 
     
     public function updateBadore($id, Request $request)
     {
+<<<<<<< HEAD
+        $badore_details = badore::where( 'badore_id', '=', $id)->first();
+
+        $badore_details->campus_name2 = $request->campus_name2;
+        $badore_details->campus_description2 = $request->campus_description2;
+    
+
+        $badore_details->save();
+        return redirect()->back();
+=======
 
         $campus_data= badore::find(1); 
 
@@ -197,6 +222,7 @@ class AdminController extends Controller
     public function viewBadoreGallery()
     {
         return view('badore_gallery');
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
     }
 
     public function newYoutubeNew()
