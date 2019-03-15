@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class youtube extends Model
 {
@@ -11,9 +12,9 @@ class youtube extends Model
 
     protected $table = "youtube"; 
 
-    protected $primary_key = "Youtube_id";
+    protected $primaryKey = "youtube_id";
 
     protected $fillable = [
-        'Video_name', 'Youtube_url', 'video_description','video'
+        'video_name', 'youtube_url', 'video_description','video'
     ];
 }

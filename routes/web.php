@@ -28,9 +28,11 @@ Route::get('/admin/edit/addo', 'AdminController@editAddo')->name('admin.addo');
 
 Route::get('/admin/edit/badore', 'AdminController@editBadore')->name('admin.badore');
 
+//youtube
 Route::get('/admin/new/youtubeNew', 'AdminController@newYoutubeNew')->name('admin.youtubeNew');
-
-Route::get('/admin/edit/youtubeView', 'AdminController@newYoutubeView')->name('admin.youtubeView');
+Route::get('/admin/show/youtubeView', 'AdminController@showYoutubeView')->name('admin.youtubeView');
+Route::get('/admin/edit/youtube/{id}', 'AdminController@editYoutubeVideos')->name('admin.editYouTube');
+Route::post('/admin/update/youtube/{id}', 'AdminController@updateYoutubeVideos')->name('admin.updateYouTube');
 
 Route::get('/admin/view/teamView', 'AdminController@viewTeam')->name('admin.teamView');
 

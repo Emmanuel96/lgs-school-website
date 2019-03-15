@@ -69,15 +69,15 @@
 							  <th>Video Description</th>
 							  <th>Action</th>
 							</tr>
-                        </thead>
-                        <tbody>
+            </thead>
+            <tbody>
                           @foreach($viewVideos as $video)
 						<tr>
-            <td>{!! $video->Video_name !!}</td>
-              <td>{!! $video->Youtube_url !!}</td>
+            <td>{!! $video->video_name !!}</td>
+              <td>{!! $video->youtube_url !!}</td>
               <td>{!! $video->video_description !!}</td>
 							<td align= "center">
-								<a href = "lgs_edit_videos.html" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+								<a href = "{!! route('admin.editYouTube', [$video->youtube_id]) !!}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
 							</td>
 							
             </tr>
