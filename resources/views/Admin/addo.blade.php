@@ -24,7 +24,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Responsive Header<small>-- For Admin Users</small></h2>
+                    <h2>Each Campus has a Gallery<small> <a class = "btn btn-primary" href = "/admin/campus/addo/gallery/1" >View Gallery</a></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                      
                     </ul>
@@ -59,28 +59,30 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action = "{{url('admin/addo/edit')}}" enctype="multipart/form-data" METHOD = "post" data-parsley-validate class="form-horizontal form-label-left">
+                      <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Campus Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name = "campus_name" required="required" value = "{{$campus_data->campus_name1}}" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "25">Campus Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id="campus_description" name="campus_description" value = "{{$campus_data->campus_description1}}" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Campus Image <span class = "required">*</span></label>
+                        <label for="campus" class="control-label col-md-3 col-sm-3 col-xs-12">Campus Image <span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="file" name="middle-name" maxlength = "15">
+                          <input value = "{{$campus_data->campus_image1}}" class="form-control col-md-7 col-xs-12" type="file"  maxlength = "15">
                         </div>
                       </div>
+                      <input type = "hidden" name = "campus_image" value = "{{$campus_data->campus_image1}}"/>
                      
                      
                       <div class="ln_solid"></div>
