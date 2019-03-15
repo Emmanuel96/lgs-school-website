@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse; 
 use App\header;
 use App\addo; 
 use App\badore; 
@@ -85,12 +86,15 @@ class AdminController extends Controller
 
     public function post_addo(Request $request)
     {
-        addo::create([
-            'campus_name1' => $request->campus_name, 
-            'campus_description1' => $request->campus_description, 
-            'campus_image1' => $request->campus_image, 
-        ]);
-        return 'I saved successfully';
+        $addo_campus = addo::find(1); 
+        $addo_campus->campus_name1 = $request->campus_name;
+        $addo_campus->campus_description1 = $request->campus_description; 
+        $addo_campus->campus_image1 = $request->campus_image;
+
+        $addo_campus->save(); 
+
+        
+        return $this->editAddo(); 
     }
 
     public function post_badore(Request $request)
@@ -101,18 +105,25 @@ class AdminController extends Controller
             'campus_description2' => $request->campus_description, 
             'campus_iamge2' => $request->campus_image
         ]);
-        return 'I saved successfully';
+        $badore = badore::find(1); 
+        $badore->campus_name2 = $request->campus_name; 
+        $badore->campus_description2 = $request->campus_name; 
+        $badore->campus_image2 = $request->campus_image; 
+
+        $badore->save(); 
+
+        return $this->editBadore();
     }
 
     public function addo_gallery()
     {
-        return 'addo gallery';
+        return view('Admin.addoImages'); 
 
     }
 
     public function badore_gallery()
     {
-        return 'badore gallery';
+        return view('Admin.badoreImages');
     }
 
     public function openAccessGallery()
@@ -198,7 +209,15 @@ class AdminController extends Controller
     }
 
 
+    public function admin_badore_images()
+    {
+        return view('Admin.badoreImages'); 
+    }
 
+    public function admin_addo_images()
+    {
+        return view('Admin.addoImages');
+    }
 
     
 }

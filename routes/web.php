@@ -54,3 +54,5 @@ Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery');
 Route::post('/admin/addo/edit', 'AdminController@post_addo');
 
 Route::post('/admin/badore/post', 'AdminController@post_badore'); 
+
+

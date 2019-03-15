@@ -66,14 +66,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Campus Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name = "campus_name" required="required" value = "{{$campus_data->campus_name1}}" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name = "campus_name" maxlength = "10" required="required" value = "{{$campus_data->campus_name1}}" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "25">Campus Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="campus_description" name="campus_description" value = "{{$campus_data->campus_description1}}" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id="campus_description" name="campus_description" value = "{{$campus_data->campus_description1}}" required="required" class="form-control col-md-7 col-xs-12" maxlength = "200">
                         </div>
                       </div>
                       <div class="form-group">
