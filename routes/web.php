@@ -45,3 +45,10 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header'); 
 Route::post('/admin/edit/about', 'AdminController@postAbout')->name('admin.about'); 
 
+Route::get('/admin/campus/addo/gallery/1', 'AdminController@addo_gallery');
+
+Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery'); 
+
+Route::post('/admin/addo/edit', 'AdminController@post_addo');
+
+Route::post('/admin/badore/post', 'AdminController@post_badore'); 
