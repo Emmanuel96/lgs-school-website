@@ -18,7 +18,7 @@ Route::get('/login', 'AuthenticateController@login')->name('login');
 Route::get('/admin/edit/header','AdminController@editHeader' )->name('admin.header');
 
 Route::get('/admin/edit/about/{id}', 'AdminController@editAbout')->name('admin.edit_about');
-Route::post('/admin/update/about/{id}', 'AdminController@updateAbout')->name('admin.updateAbout');
+Route::post('/admin/update/about/{id}', 'AdminController@postAbout')->name('admin.updateAbout');
 Route::get('/admin/view/aboutView', 'AdminController@viewAbout')->name('admin.aboutView');
 Route::get('/admin/edit/aboutPagedetails', 'AdminController@editPage')->name('admin.aboutPagedetails');
 
