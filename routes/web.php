@@ -17,16 +17,21 @@ Route::get('/login', 'AuthenticateController@login')->name('login');
 
 Route::get('/admin/edit/header','AdminController@editHeader' )->name('admin.header');
 
-Route::get('/admin/edit/about', 'AdminController@editAbout')->name('admin.about');
+Route::get('/admin/edit/about/{id}', 'AdminController@editAbout')->name('admin.edit_about');
+Route::post('/admin/update/about/{id}', 'AdminController@postAbout')->name('admin.updateAbout');
 Route::get('/admin/view/aboutView', 'AdminController@viewAbout')->name('admin.aboutView');
+Route::get('/admin/edit/aboutPagedetails', 'AdminController@editPage')->name('admin.aboutPagedetails');
 
 Route::get('/admin/edit/event', 'AdminController@editEvent')->name('admin.event');
 
-Route::get('/admin/edit/team', 'AdminController@editTeam')->name('admin.team');
+Route::get('/admin/edit/team/{id}', 'AdminController@editTeam')->name('admin.team');
+Route::post('/admin/update/team/{id}', 'AdminController@updateTeam')->name('admin.updateTeam');
 
 Route::get('/admin/edit/addo', 'AdminController@editAddo')->name('admin.addo');
+Route::post('/admin/update/addo/{id}', 'AdminController@updateAddo')->name('admin.updateAddo');
 
 Route::get('/admin/edit/badore', 'AdminController@editBadore')->name('admin.badore');
+Route::post('/admin/update/badore/{id}', 'AdminController@updateBadore')->name('admin.updateBadore');
 
 //youtube
 Route::get('/admin/new/youtubeNew', 'AdminController@newYoutubeNew')->name('admin.youtubeNew');
@@ -44,8 +49,7 @@ Route::get('/admin/view/eventImage', 'AdminController@viewEventImage')->name('ad
 
 Route::get('/home', 'HomeController@home')->name('home'); 
 
-Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header'); 
-Route::post('/admin/edit/about', 'AdminController@postAbout')->name('admin.about'); 
+Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header');
 
 Route::get('/admin/campus/addo/gallery/1', 'AdminController@addo_gallery');
 

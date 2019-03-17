@@ -15,9 +15,11 @@ class CreateAboutTable extends Migration
     {
         Schema::create('about', function (Blueprint $table) {
             $table->increments('about_id');
-            $table->string('year_range'); 
+            $table->longText('year_range'); 
             $table->string('year_heading');  
             $table->longText('year_description'); 
+            $table->string('header')->default('lorem ipsum');
+            $table->string('footer')->default('join our team!');
             $table->string('display_image'); 
             $table->timestamps();
         });

@@ -29,6 +29,6 @@ class CreateBadoreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_badore');
+        Schema::dropIfExists('badore');
     }
 }

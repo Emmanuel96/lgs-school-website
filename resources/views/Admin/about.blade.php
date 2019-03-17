@@ -58,35 +58,44 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="POST" action="{{ route('admin.updateAbout', [$about_details->about_id])}}">
+                      <input type="hidden" name="_token" value="{{ csrf_token()}}">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="first-name">Year Range<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" maxlength= "15" class="form-control col-md-7 col-xs-12">
-                        </div>
+                          <input type="text" name = "year_range"  required="required" value="{{$about_details->year_range}}"  maxlength= "15" class="form-control col-md-7 col-xs-12">
+                      </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "25">Year Heading<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" name="year_heading" required="required" value="{{$about_details->year_heading}}"  class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "100">Year Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id= "about_id" name="year_description" required="required" value="{{$about_details->year_description}}"  class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Image <span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12"  type="file" name="middle-name" maxlength = "15">
+                          <input id="about_id" class="form-control col-md-7 col-xs-12" value= "{{$about_details->display_image}}" type="file" name="display_image" maxlength = "15">
                         </div>
                       </div>
+
+                      <div class="hidden">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Image <span class = "required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="about_id" class="form-control col-md-7 col-xs-12" value= "{{$about_details->display_image}}" type="text" name="display_image" maxlength = "15">
+                        </div>
+                      </div>
+
+
                      
                      
                       <div class="ln_solid"></div>
@@ -97,6 +106,7 @@
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
+                      </form>
                   </div>
                 </div>
               </div>

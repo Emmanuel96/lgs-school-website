@@ -9,7 +9,13 @@ use App\addo;
 use App\badore; 
 use Notifiable; 
 use App\about;
+<<<<<<< HEAD
+use App\team;
+use App\badore;
+use App\addo;
+=======
 use App\youtube;
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
 use DB;
 use Response; 
 
@@ -40,29 +46,31 @@ class AdminController extends Controller
         ]);
     }
 
-    public function postAbout($id, Request $request)
-    {
-        //$about_details= about::where('about_id', $id)->first();
-        
-       // return $request->display_image;
-        //save the heder thing
-        About::where('about_id', $id)
-        ->update([
-            'year_range' => $request->year_range, 
-            'year_heading' => $request->year_heading, 
-            'year_description' => $request->year_description, 
-            'display_image'=> $request->display_image,
-        ]);
-
-        return $this->viewAbout($request); 
-    }
 
     public function editAbout($id)
     {
-        $abouts = about::where('about_id', $id)->first();
+        $about_details = about::where('about_id', $id)->first();
+        return $about_details;
 
-        return view('Admin.about' , ['abouts'=> $abouts]);
+        return view('Admin.about')->with(['about_details'=> $about_details]);     
+    }          
+    public function updateAbout($id, Request $request)
+    {
+        $about_details = about::where( 'about_id', '=', $id)->first();
+        return $about_details;
+        $about_details->year_range = $request->year_range;
+        $about_details->year_heading = $request->year_heading;
+        $about_details->year_description = $request->year_description;
+    
 
+        $about_details->save();
+        return redirect()->back();
+    }
+
+    public function editPage()
+    {
+       // $page_details = about::where('')
+        return view('Admin.aboutPagedetails');
         
     }
 
@@ -74,25 +82,64 @@ class AdminController extends Controller
         return view('Admin.aboutView', ['abouts' => $abouts]);
     }
 
-    
-    public function editPage()
-    {
-        return view('Admin.aboutPagedetails'); 
-
-    }
-
     public function editEvent()
     {
         return view('Admin.event');
     }
 
-    public function editTeam()
-    {
-        return view('Admin.team');
+    public function editTeam($id)
+    {  
+        $team_details = team::where( 'team_id', '=', $id)->first();
+       // return $team_details;
+
+        return view('Admin.team')->with(['team_details'=> $team_details]); 
     }
 
-    public function editAddo()
+    public function updateTeam($id, Request $request)
     {
+        $team_details = team::where( 'team_id', '=', $id)->first();
+    
+        $team_details->staff_name = $request->staff_name;
+        $team_details->staff_role = $request->staff_role;
+    
+
+        $team_details->save();
+        return redirect()->back();
+    }
+
+    public function editAddo($id=1)
+    {
+        $addo_details = addo::where('addo_id','=',$id)->first();
+        //$campus_data= DB::table('addo')->selectctRAW('*')->get();
+        return view('Admin.addo')->with(['addo_details'=>$addo_details]); //,// ['campus_name1'=> $campus_data[0]->campus_name1,
+        /// 'campus_description1' => $campus_data[0]->campus_description1, 
+        // 'campus_image1' => $campus_data[0]->campus_image1]);
+    }
+
+    public function updateAddo($id, Request $request)
+    {
+        $addo_details = addo::where( 'addo_id', '=', $id)->first();
+    
+        $addo_details->campus_name1 = $request->campus_name1;
+        $addo_details->campus_description1 = $request->campus_description1;
+    
+
+        $addo_details->save();
+        return redirect()->back();
+    }
+
+
+    public function editBadore($id=1)
+    {
+<<<<<<< HEAD
+        $badore_details = badore::where('badore_id','=',$id)->first();
+        //return $badore_details;
+        //$campus_data= DB::table('badore')->selectctRAW('*')->get();
+        return view('Admin.badore')->with(['badore_details'=>$badore_details]);// , ['campus_name2'=> $badore_data[0]->campus_name2,
+         //'campus_description2' => $badore_data[0]->campus_description2, 
+         //'campus_image2' => $badore_data[0]->campus_image2]);
+         
+=======
         $campus_data= addo::find(1);
     
         return view('Admin.addo' , ['campus_data' => $campus_data ]);
@@ -144,10 +191,22 @@ class AdminController extends Controller
     public function openAccessGallery()
     {
         return 'I got here'; 
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
     }
 
-    public function editBadore()
+    
+    public function updateBadore($id, Request $request)
     {
+<<<<<<< HEAD
+        $badore_details = badore::where( 'badore_id', '=', $id)->first();
+
+        $badore_details->campus_name2 = $request->campus_name2;
+        $badore_details->campus_description2 = $request->campus_description2;
+    
+
+        $badore_details->save();
+        return redirect()->back();
+=======
 
         $campus_data= badore::find(1); 
 
@@ -163,6 +222,7 @@ class AdminController extends Controller
     public function viewBadoreGallery()
     {
         return view('badore_gallery');
+>>>>>>> c6d150a408d1b0e7692f9cd3b20664fdb8963201
     }
 
     public function newYoutubeNew()
@@ -234,4 +294,5 @@ class AdminController extends Controller
         return view('Admin.addoImages');
     }
 
+    
 }
