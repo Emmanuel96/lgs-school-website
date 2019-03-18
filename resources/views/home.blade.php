@@ -526,6 +526,8 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
+
+        @foreach($youtubes as $youtube)
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1">
@@ -536,85 +538,16 @@
               </div>
 		      <!---  <iframe style = "width: 99.9%; " height = "350" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			  
 			  !-->
-		      <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
-
+          <img class="img-fluid" src="/images/portfolio/{{ $youtube->display_image }}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Roar</h4>
-              <p class="text-muted">Illustration</p>
+              <h4>{{ $youtube->video_name }}</h4>
+              <p class="text-muted">{{ $youtube->image_description }}</p>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Happy</h4>
-              <p class="text-muted">Graphic Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal3">
-              <div class="portfolio-hover">               
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Can't Be Boxed</h4>
-              <p class="text-muted">Identity</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Weekly News</h4>
-              <p class="text-muted">Branding</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
-            </div>
-          </div>
-        </div>
+        </div>       
+        @endforeach
+      </div>
       </div>
     </section>
 	
