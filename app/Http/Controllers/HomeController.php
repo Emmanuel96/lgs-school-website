@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use DB; 
 use App\header; 
 use App\youtube;
+use App\event;
+use App\team; 
+use App\about;
 
 class HomeController extends Controller
 {
@@ -19,9 +22,12 @@ class HomeController extends Controller
         
         $header_data = DB::table('header')->selectRaw('*')->get();
         // return $header_data[0]->welcome_text; 
-
+        
+        //get details using the model 
         $youtubes = youtube::all();
-
+        $events = event::all();
+        $teams = team::all();
+        
         return view('home', ['welcome_text'=> $header_data[0]->welcome_text, 
         
         'intro_text' => $header_data[0]->intro_text, 
@@ -33,6 +39,7 @@ class HomeController extends Controller
          'campus_description2' => $badore_data[0]->campus_description2, 
          'campus_image2' => $badore_data[0]->campus_image2,
          'youtubes' => $youtubes,
+         'events' => $events,
          ]);
     }
 
