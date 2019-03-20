@@ -77,7 +77,7 @@
 							<td>{!! $about->year_heading !!}</td>
 							<td>{!! $about->year_description !!}</td>
 							<td align= "center">
-								<a href = "{!! route('admin.about') !!}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+								<a href = "{!! route('admin.editAbout', [$about->about_id]) !!}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
 							</td>	
 						</tr>
             

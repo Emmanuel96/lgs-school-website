@@ -109,6 +109,8 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
+
+        @foreach($events as $event)
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
@@ -117,84 +119,16 @@
                   <i class="fas fa-image fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
+              <img class="img-fluid" src="/images/portfolio/{{ $event->Display_image }}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Valentine's Day </h4>
-              <p class="text-muted">Illustration</p>
+              <h4>{!! $event->EventName !!} </h4>
+              <p class="text-muted">{!! $event->EventDescription !!}</p>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Numeracy Day </h4>
-              <p class="text-muted">Get The Maths Right.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>International Day</h4>
-              <p class="text-muted">Celebrate The World.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Graduation 2018</h4>
-              <p class="text-muted">Our Children. Our Pride</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Inter House Sports</h4>
-              <p class="text-muted">Sports is growth.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Graduation 2017</h4>
-              <p class="text-muted">Our Children. Our Pride.</p>
-            </div>
-          </div>
+          </div>        
         </div>
+        @endforeach
+
       </div>
     </section>
 

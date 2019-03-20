@@ -69,12 +69,12 @@
 							</tr>
                         </thead>
                         <tbody>
-                          @foreach($teams as $team)
+              @foreach($teams as $team)
 						<tr>
-						<td>{!! $team->Name !!}</td>
-							<td>{!! $team->Role !!}</td>
+						<td>{!! $team->staff_name !!}</td>
+							<td>{!! $team->staff_role !!}</td>
 							<td align= "center">
-								<a href = "lgs_edit_team.html" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+								<a href = "{{ route('admin.editTeam', [ $team->team_id ]) }}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
 							</td>
 							
             </tr>
