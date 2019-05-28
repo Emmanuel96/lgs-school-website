@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB; 
 use App\header; 
-use App\about;
+use App\youtube;
+use App\event;
 use App\team; 
-use App\event; 
-use App\youtube; 
+use App\about;
 
 class HomeController extends Controller
 {
