@@ -29,6 +29,6 @@ class CreateAddoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_addo');
+        Schema::dropIfExists('addo');
     }
 }

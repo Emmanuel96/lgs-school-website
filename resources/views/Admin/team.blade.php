@@ -60,20 +60,21 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype=multipart/form-data method="POST" action="{{ route('admin.updateTeam', [$team_details->team_id])}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="first-name">Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" required="required" maxlength= "15" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="first-name" name="staff_name" required="required" value="{{$team_details->staff_name}} "15" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "25">Role<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id="last-name" name="staff_role" value="{{$team_details->staff_role}} " required class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
 					  

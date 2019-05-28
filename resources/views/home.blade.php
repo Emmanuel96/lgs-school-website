@@ -9,6 +9,7 @@
     <meta name="author" content="">
 
     <title>LGS - Lords Gate Montessori </title>
+    <link rel="shortcut icon" href="{{'images/logo.ico'}}" />
 
     <!-- Bootstrap core CSS -->
     <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -23,14 +24,22 @@
     <!-- Custom styles for this template -->
     <link href="{{URL::asset('css/agency.min.css')}}" rel="stylesheet">
 
+    <style>
+      nav{
+        background-color: black; 
+      }
+    </style>
   </head>
 
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav style="background-color: black;" class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Lords Gate Montessori</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <img style = "width: 50px; height: 50px;" src = "{{'images/logo.png'}}" />
+          Lords Gate Montessori
+        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -94,7 +103,7 @@
           <div class = "col-md-6">
 		     	  <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
             <h4 class="service-heading"> {{$campus_name2}} </h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            <p class="text-muted">{{$campus_description2}}</p>
           </div>
         </div>
       </div>
@@ -109,6 +118,8 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
+
+       {{-- @foreach($events as $event) --}} 
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
@@ -117,10 +128,10 @@
                   <i class="fas fa-image fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
+              <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_leading.jpg')}}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Valentine's Day </h4>
+              <h4>Cheer Leading Competition</h4>
               <p class="text-muted">Illustration</p>
             </div>
           </div>
@@ -131,10 +142,10 @@
                   <i class="fas fa-image fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
+              <img class="img-fluid" src="{{URL::asset('images/portfolio/prefects.jpg')}}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Numeracy Day </h4>
+              <h4>Prefects Day </h4>
               <p class="text-muted">Get The Maths Right.</p>
             </div>
           </div>
@@ -145,56 +156,17 @@
                   <i class="fas fa-image fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
+              <img class="img-fluid" src="{{URL::asset('images/portfolio/staff_love.jpg')}}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>International Day</h4>
+              <h4>Staff Love Day</h4>
               <p class="text-muted">Celebrate The World.</p>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Graduation 2018</h4>
-              <p class="text-muted">Our Children. Our Pride</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Inter House Sports</h4>
-              <p class="text-muted">Sports is growth.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Graduation 2017</h4>
-              <p class="text-muted">Our Children. Our Pride.</p>
-            </div>
-          </div>
+          
         </div>
+        {{-- @endforeach --}}
+
       </div>
     </section>
 
@@ -207,6 +179,7 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
+        @foreach( $abouts as $about_detail)
         <div class="row">
           <div class="col-lg-12">
             <ul class="timeline">
@@ -216,56 +189,15 @@
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>2009-2011</h4>
-                    <h4 class="subheading">Our Humble Beginnings</h4>
+                    <h4>{{$about_detail->year_range}}</h4>
+                    <h4 class="subheading">{{$about_detail->year_heading}}</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <p class="text-muted">{{$about_detail->year_description}}</p>
                   </div>
                 </div>
               </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{{URL::asset('images/about/2.jpg')}}" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>March 2011</h4>
-                    <h4 class="subheading">An School is Born</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{{URL::asset('images/about/3.jpg')}}" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>December 2012</h4>
-                    <h4 class="subheading">Transition to Full Service</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{{URL::asset('images/about/4.jpg')}}" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>July 2014</h4>
-                    <h4 class="subheading">Creation of Addo Branch</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
+              @endforeach
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <h4>Be Part
@@ -289,11 +221,12 @@
           </div>
         </div>
         <div class="row">
+        @foreach($teams as $team)
           <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/1.jpg')}}" alt="">
-              <h4>Kay Garland</h4>
-              <p class="text-muted">Lead Designer</p>
+              <h4>{!! $team -> staff_name !!}</h4>
+              <p class="text-muted">{!! $team -> staff_role !!}</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -313,132 +246,9 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/2.jpg')}}" alt="">
-              <h4>Larry Parker</h4>
-              <p class="text-muted">Lead Marketer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/3.jpg')}}" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          @endforeach
         </div>
-		
-		 <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/1.jpg')}}" alt="">
-              <h4>Kay Garland</h4>
-              <p class="text-muted">Lead Designer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/2.jpg')}}" alt="">
-              <h4>Larry Parker</h4>
-              <p class="text-muted">Lead Marketer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/3.jpg')}}" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-	
-	
+
       </div>
     </section>
 
@@ -526,7 +336,9 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
+
         <div class="row">
+        @foreach($youtubes as $youtube)
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1">
               <div class="portfolio-hover">
@@ -536,85 +348,16 @@
               </div>
 		      <!---  <iframe style = "width: 99.9%; " height = "350" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			  
 			  !-->
-		      <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
-
+          <img class="img-fluid" src="/images/portfolio/{{ $youtube->display_image }}" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Roar</h4>
-              <p class="text-muted">Illustration</p>
+              <h4>{{ $youtube->video_name }}</h4>
+              <p class="text-muted">{{ $youtube->image_description }}</p>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Happy</h4>
-              <p class="text-muted">Graphic Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal3">
-              <div class="portfolio-hover">               
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Can't Be Boxed</h4>
-              <p class="text-muted">Identity</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Weekly News</h4>
-              <p class="text-muted">Branding</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-video fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
-            </div>
-          </div>
-        </div>
+        @endforeach
+      </div>       
+      </div>
       </div>
     </section>
 	
@@ -703,8 +446,6 @@
       </div>
     </footer>
 
-    <!-- Portfolio Modals -->
-
     <!-- Modal 1 -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -726,41 +467,41 @@
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}"alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_6.jpg')}}"alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						  
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_1.jpg')}}" alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_2.jpg')}}" alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_3.jpg')}}" alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_4.jpg')}}" alt="">
 						</a>					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_5.jpg')}}" alt="">
 						</a>
 						
 					  </div>
@@ -833,41 +574,41 @@
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_1.jpg')}}" alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						  
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_2.jpg')}}" alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_3.jpg')}}" alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_4.jpg')}}" alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_5.jpg')}}" alt="">
 						</a>					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_6.jpg')}}" alt="">
 						</a>
 						
 					  </div>
@@ -939,41 +680,41 @@
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_1.jpg')}}" alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						  
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_2.jpg')}}" alt="">
 						</a>
 						
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_3.jpg')}}" alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_4.jpg')}}"alt="">
 						</a>
 					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_5.jpg')}}" alt="">
 						</a>					   
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 						 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_6.jpg')}}" alt="">
 						</a>
 						
 					  </div>

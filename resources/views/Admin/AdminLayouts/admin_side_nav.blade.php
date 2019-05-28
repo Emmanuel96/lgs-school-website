@@ -48,13 +48,12 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> About <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="{!! route('admin.about') !!}">Edit About</a></li>
+                    <li><a href="{!! route('admin.aboutPagedetails') !!}">Page Header & Footer</a></li>
                       <li><a href="{!! route('admin.aboutView') !!}">View About</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-group"></i> Team <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{!! route('admin.team') !!}">Edit Team</a></li>
                       <li><a href="{!! route('admin.teamView') !!}">View Team</a></li>
                     </ul>
                   </li>

@@ -40,29 +40,21 @@ class AdminController extends Controller
         ]);
     }
 
-    public function postAbout($id, Request $request)
+    public function postAbout(Request $request)
     {
-        //$about_details= about::where('about_id', $id)->first();
-        
-       // return $request->display_image;
         //save the heder thing
-        About::where('about_id', $id)
+        About::where('About_id', 1)
         ->update([
             'year_range' => $request->year_range, 
             'year_heading' => $request->year_heading, 
             'year_description' => $request->year_description, 
             'display_image'=> $request->display_image,
         ]);
-
-        return $this->viewAbout($request); 
     }
 
-    public function editAbout($id)
+    public function editAbout()
     {
-        $abouts = about::where('about_id', $id)->first();
-
-        return view('Admin.about' , ['abouts'=> $abouts]);
-
+        return view('Admin.about');
         
     }
 
@@ -72,13 +64,6 @@ class AdminController extends Controller
         //dd($abouts);
 
         return view('Admin.aboutView', ['abouts' => $abouts]);
-    }
-
-    
-    public function editPage()
-    {
-        return view('Admin.aboutPagedetails'); 
-
     }
 
     public function editEvent()
@@ -234,4 +219,5 @@ class AdminController extends Controller
         return view('Admin.addoImages');
     }
 
+    
 }
