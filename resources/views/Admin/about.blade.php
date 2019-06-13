@@ -74,7 +74,7 @@
                           <input type="text" name="year_heading" required="required" value="{{$about_details->year_heading}}"  class="form-control col-md-7 col-xs-12" maxlength = "20">
                         </div>
                       </div>
-					  <div class="form-group">
+					          <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "100">Year Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -102,7 +102,7 @@
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
+						                <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>

@@ -27,7 +27,7 @@ class TeamSeeder extends Seeder
             'Twitter_link' => '',
             'facebook_link' => '',
             'Linkedin_link' => '',
-            'display_image' => '',
+            'display_image' => '2.jpg',
         ]);
 
         DB::table('team')->insert([

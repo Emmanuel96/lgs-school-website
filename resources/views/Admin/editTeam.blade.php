@@ -7,7 +7,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit {!! $videos->video_name !!}</h3>
+                <h3>Edit {{ $teams->staff_name }}</h3>
               </div>
 
               <div class="title_right">
@@ -60,40 +60,32 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateYouTube', [$videos->youtube_id]) }}" class="form-horizontal form-label-left">
+                  <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateTeam', [$teams->team_id])}}" class="form-horizontal form-label-left">
                         <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 						
 					  <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Video Name<span class = "required">*</span></label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Staff Name<span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="video-name" class="form-control col-md-7 col-xs-12"  type="text" name="video_name" maxlength = "" value="{!! $videos->video_name !!}">
+                        <input id="staff-name" class="form-control col-md-7 col-xs-12"  type="text" name="staff_name" maxlength = "" value="{!! $teams->staff_name !!}">
                         </div>
                       </div>
 					  
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Youtube URL <span class = "required">*</span></label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Staff Role <span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="youtube-url" class="form-control col-md-7 col-xs-12"  type="text" name="youtube_url" maxlength = "" value="{!! $videos->youtube_url !!}">
+                          <input id="staff-role" class="form-control col-md-7 col-xs-12"  type="text" name="staff_role" maxlength = "" value="{!! $teams->staff_role !!}">
                         </div>
                       </div>
-					  
-					  <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "255">Video Description<span class="required">*</span>
-                        </label>
+
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12"> Image<span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="video_description" required="required" class="form-control col-md-7 col-xs-12" maxlength = "255" value="{!! $videos->video_description !!}">
+                        <img name = "current_image" class = "img-responsive" alt = " No image"  id = "display-image" src =  "/images/team/{!! $teams->display_image !!}"   >
+                        <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
+                        <input value = "{!! $teams->display_image !!}" type = "file " id = "display-image" name = "display_image"/>
                         </div>
-                      </div>
-					  
-					  
-					  <div class="form-group">
-						<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Image <span class = "required">*</span></label>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="display-image" class="form-control col-md-7 col-xs-12"  type="file" name="display_image" maxlength = "" value="">
-                          
-						</div>
-				     </div>
-                   
+                    </div>
+					                     
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

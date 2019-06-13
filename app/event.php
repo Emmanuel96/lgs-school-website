@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notifiable;
 
 class event extends Model
 {
-    //
     use Notifiable; 
 
     protected $table = "event"; 

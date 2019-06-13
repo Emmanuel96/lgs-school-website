@@ -119,54 +119,24 @@
           </div>
         </div>
 
-       {{-- @foreach($events as $event) --}} 
         <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
+          @foreach($events as $event)
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fas fa-image fa-3x"></i>
+                  </div>
                 </div>
+                <img class="img-fluid" src="/images/portfolio/{{ $event->Display_image }}" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>{!! $event->EventName !!} </h4>
+                <p class="text-muted">{!! $event->EventDescription !!}</p>
               </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_leading.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Cheer Leading Competition</h4>
-              <p class="text-muted">Illustration</p>
-            </div>
+            </div>        
+          @endforeach
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/prefects.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Prefects Day </h4>
-              <p class="text-muted">Get The Maths Right.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-image fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="{{URL::asset('images/portfolio/staff_love.jpg')}}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Staff Love Day</h4>
-              <p class="text-muted">Celebrate The World.</p>
-            </div>
-          </div>
-          
-        </div>
-        {{-- @endforeach --}}
-
       </div>
     </section>
 
@@ -179,8 +149,8 @@
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
-        @foreach( $abouts as $about_detail)
         <div class="row">
+        @foreach( $abouts as $about_detail)
           <div class="col-lg-12">
             <ul class="timeline">
               <li>
@@ -198,6 +168,7 @@
                 </div>
               </li>
               @endforeach
+
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <h4>Be Part
@@ -207,6 +178,7 @@
               </li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
@@ -221,31 +193,31 @@
           </div>
         </div>
         <div class="row">
-        @foreach($teams as $team)
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/1.jpg')}}" alt="">
-              <h4>{!! $team -> staff_name !!}</h4>
-              <p class="text-muted">{!! $team -> staff_role !!}</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
+          @foreach($teams as $team)
+            <div class="col-sm-4">
+              <div class="team-member">
+                <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/1.jpg')}}" alt="">
+                <h4>{!! $team -> staff_name !!}</h4>
+                <p class="text-muted">{!! $team -> staff_role !!}</p>
+                <ul class="list-inline social-buttons">
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
           @endforeach
         </div>
 

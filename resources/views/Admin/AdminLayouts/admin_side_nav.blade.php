@@ -37,9 +37,9 @@
                      
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-calendar-o"></i> Events <span class="fa fa-chevron-down"></span></a>
+                  <li ><a><i class="fa fa-calendar-o"></i> Events <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="{!! route('admin.event') !!}"> Edit Events</a></li>
+                    <li><a href="{!! route('admin.event') !!}"> New Event</a></li>
                       <li><a href="{!! route('admin.eventView') !!}">View Events</a></li>
                     
                        
@@ -48,12 +48,13 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> About <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="{!! route('admin.aboutPagedetails') !!}">Page Header & Footer</a></li>
+                    <li><a href="{!! route('admin.about') !!}">New About</a></li>
                       <li><a href="{!! route('admin.aboutView') !!}">View About</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-group"></i> Team <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="{!! route('admin.team') !!}">New Team</a></li>
                       <li><a href="{!! route('admin.teamView') !!}">View Team</a></li>
                     </ul>
                   </li>

@@ -69,14 +69,14 @@
 							</tr>
                         </thead>
                         <tbody>
-                          @foreach($teams as $team)
+              @foreach($teams as $team)
 						<tr>
-                  <td>{!! $team->staff_name !!}</td>
-                  <td>{!! $team->staff_role !!}</td>
-                  
-                  <td>
-                    <a href ="{{ route('admin.team',[$team->team_id])}}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
-                  </td>
+						<td>{!! $team->staff_name !!}</td>
+							<td>{!! $team->staff_role !!}</td>
+							<td align= "center">
+								<a href = "{{ route('admin.editTeam', [ $team->team_id ]) }}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+							</td>
+							
             </tr>
 
             @endforeach
