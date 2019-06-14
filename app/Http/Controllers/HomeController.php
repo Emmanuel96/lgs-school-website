@@ -26,6 +26,12 @@ class HomeController extends Controller
         $about_details = about::where('about_id', '$id')->first();
         // return $about_details;
 
+        
+        //get details using the model 
+        $youtubes = youtube::all();
+        $events = event::all();
+        $teams = team::all();
+        
         return view('home', ['welcome_text'=> $header_data[0]->welcome_text, 
         
         'intro_text' => $header_data[0]->intro_text, 
@@ -40,7 +46,8 @@ class HomeController extends Controller
          'abouts' => about::all(), 
          'teams' => team::all(), 
          'events' => event::all(), 
-         'youtubes' => youtube::all()
+         'youtubes' => $youtubes,
+         'events' => $events,
          ]);
     }
 

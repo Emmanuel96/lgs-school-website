@@ -60,7 +60,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action = "{{url('admin/badore/post')}}" enctype="multipart/form-data" METHOD = "post" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action = "{!! route('admin.updateBadore') !!}" enctype="multipart/form-data" METHOD = "POST" data-parsley-validate class="form-horizontal form-label-left">
  
                       <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 
@@ -68,7 +68,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Campus Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="campus-name" name = "campus_name" value = "{{$campus_data->campus_name2}}" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="campus-name" name = "campus_name" value = "{{ $campus_data->campus_name2 }}" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
@@ -85,7 +85,7 @@
                         </div>
                       </div>
 
-                      <input type = "hidden" name = "campus_image" value = "{{$campus_data->campus_image2}}"/>
+                      <input type = "hidden" name = "campus_image" value = "{{$campus_data->campus_image2 }}"/>
 
                      
                      

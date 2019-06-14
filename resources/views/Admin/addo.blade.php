@@ -59,7 +59,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" action = "{{url('admin/addo/edit')}}" enctype="multipart/form-data" METHOD = "post" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action = "{{ route('admin.updateAddo') }}" enctype="multipart/form-data" METHOD = "POST" data-parsley-validate class="form-horizontal form-label-left">
                       <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 
                       <div class="form-group">

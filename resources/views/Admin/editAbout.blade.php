@@ -7,7 +7,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit {!! $videos->video_name !!}</h3>
+                <h3>Edit About</h3>
               </div>
 
               <div class="title_right">
@@ -60,39 +60,30 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateYouTube', [$videos->youtube_id]) }}" class="form-horizontal form-label-left">
+                    <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{!! route('admin.updateAbout', [$abouts->about_id]) !!}" class="form-horizontal form-label-left">
                         <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 						
 					  <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Video Name<span class = "required">*</span></label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Year Range<span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="video-name" class="form-control col-md-7 col-xs-12"  type="text" name="video_name" maxlength = "" value="{!! $videos->video_name !!}">
+                        <input id="year-range" class="form-control col-md-7 col-xs-12"  type="text" name="year_range" maxlength = "" value="{!! $abouts->year_range !!}">
                         </div>
                       </div>
 					  
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Youtube URL <span class = "required">*</span></label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Year Heading <span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="youtube-url" class="form-control col-md-7 col-xs-12"  type="text" name="youtube_url" maxlength = "" value="{!! $videos->youtube_url !!}">
+                          <input id="year-heading" class="form-control col-md-7 col-xs-12"  type="text" name="year_heading" maxlength = "" value="{!! $abouts->year_heading !!}">
                         </div>
                       </div>
 					  
 					  <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "255">Video Description<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "255">Year Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="video_description" required="required" class="form-control col-md-7 col-xs-12" maxlength = "255" value="{!! $videos->video_description !!}">
+                          <input type="text" id="year-description" name="year_description" required="required" class="form-control col-md-7 col-xs-12" maxlength = "255" value="{!! $abouts->year_description !!}">
                         </div>
                       </div>
-					  
-					  
-					  <div class="form-group">
-						<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Image <span class = "required">*</span></label>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="display-image" class="form-control col-md-7 col-xs-12"  type="file" name="display_image" maxlength = "" value="">
-                          
-						</div>
-				     </div>
                    
                       <div class="ln_solid"></div>
                       <div class="form-group">

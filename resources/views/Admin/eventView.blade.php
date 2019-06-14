@@ -68,15 +68,16 @@
 							  <th>Event Description</th>
 							  <th>Actions</th>
 							</tr>
-                        </thead>
+            </thead>
+            
 						<tbody>
               @foreach($viewEvents as $eventV)
 						<tr>
 						<td>{!! $eventV->EventName !!}</td>
 							<td>{!! $eventV->EventDescription !!}</td>
 							<td>
-								<a href = "lgs_edit_events.html" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
-								<a title= "delete" class = "btn btn-danger"><i class = "fa fa-trash"></i></a>
+                <a href = "{{ route('admin.editEvent', [ $eventV->Event_id ])}}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+								<a href="{{ route('admin.deleteEvent', [ $eventV->Event_id ]) }}" title= "delete" class = "btn btn-danger"><i class = "fa fa-trash"></i></a>
 								<a href = "lgs_event_images.html" title = "view images" class = "btn btn-success"><i class = "fa fa-image "></i></a>
 							</td>
 							
