@@ -13,11 +13,11 @@
 
 Route::get('/', 'HomeController@home');
 
-Route::get('/login', 'AuthenticateController@login')->name('login'); 
+Route::get('/login', 'AuthenticateController@login')->name('login');
 
 //header
 Route::get('/admin/edit/header','AdminController@editHeader' )->name('admin.header');
-Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header'); 
+Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header');
 
 Route::get('/admin/edit/about/{id}', 'AdminController@editAbout')->name('admin.edit_about');
 Route::post('/admin/update/about/{id}', 'AdminController@postAbout')->name('admin.updateAbout');
@@ -74,16 +74,16 @@ Route::get('/admin/view/login','AdminController@Login')->name('admin.login');
 
 Route::get('/admin/view/eventImage', 'AdminController@viewEventImage')->name('admin.eventImage');
 
-Route::get('/home', 'HomeController@home')->name('home'); 
+Route::get('/home', 'HomeController@home')->name('home');
 
 Route::post('/admin/edit/header', 'AdminController@postHeader')->name('admin.post_header');
 
 Route::get('/admin/campus/addo/gallery/1', 'AdminController@addo_gallery');
 
-Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery'); 
+Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery');
 
 Route::post('/admin/addo/edit', 'AdminController@post_addo');
 
-Route::post('/admin/badore/post', 'AdminController@post_badore'); 
+Route::post('/admin/badore/post', 'AdminController@post_badore');
 
 

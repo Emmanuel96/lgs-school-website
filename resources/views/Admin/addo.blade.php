@@ -24,7 +24,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Each Campus has a Gallery<small> <a class = "btn btn-primary" href = "/admin/campus/addo/gallery/1" >View Gallery</a></small></h2>
+                    <!-- <h2>Each Campus has a Gallery<small> <a class = "btn btn-primary" href = "/admin/campus/addo/gallery/1" >View Gallery</a></small></h2> -->
                     <ul class="nav navbar-right panel_toolbox">
                      
                     </ul>

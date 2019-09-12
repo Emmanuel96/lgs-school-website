@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse; 
+use Illuminate\Http\RedirectResponse;
 use App\header;
-use App\addo; 
-use App\badore; 
-use Notifiable; 
+use App\addo;
+use App\badore;
+use Notifiable;
 use App\about;
 use App\youtube;
 use App\event;
 use App\team;
 use DB;
-use Response; 
+use Response;
 
 class AdminController extends Controller
 {
@@ -26,8 +26,8 @@ class AdminController extends Controller
     {
 
         $header_data = DB::table('header')->selectRaw('*')->get();
-        
-        return view('Admin.header', ['welcome_text'=> $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]); 
+
+        return view('Admin.header', ['welcome_text'=> $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]);
     }
 
     public function postHeader(Request $request)
@@ -35,9 +35,9 @@ class AdminController extends Controller
         //save the heder thing
         Header::where('id', 1)
         ->update([
-            'welcome_text' => $request->welcome_text, 
-            'intro_text' => $request->intro_text, 
-            'button_text' => $request->button_text, 
+            'welcome_text' => $request->welcome_text,
+            'intro_text' => $request->intro_text,
+            'button_text' => $request->button_text,
         ]);
     }
 
@@ -45,13 +45,13 @@ class AdminController extends Controller
     {
         about::where('About_id', 1)
         ->update([
-            'year_range' => $request->year_range, 
-            'year_heading' => $request->year_heading, 
-            'year_description' => $request->year_description, 
+            'year_range' => $request->year_range,
+            'year_heading' => $request->year_heading,
+            'year_description' => $request->year_description,
             'display_image'=> $request->display_image,
         ]);
 
-        return $this->viewAbout($request); 
+        return $this->viewAbout($request);
     }
 
     public function newAbout()
@@ -60,7 +60,7 @@ class AdminController extends Controller
 
         return view('Admin.about' , ['abouts'=> $abouts]);
 
-        
+
     }
 
     public function viewAbout(Request $request )
@@ -72,9 +72,9 @@ class AdminController extends Controller
     }
 
     public function editAbout($id)
-    { 
+    {
         $abouts = about::where('about_id', $id)->first();
-        
+
         return view('Admin.editAbout', [ 'abouts' => $abouts ]);
     }
 
@@ -102,7 +102,7 @@ class AdminController extends Controller
     public function viewEvent()
     {
         $viewEvents= event::all();
-            
+
         return view('Admin.eventView', [ 'viewEvents' => $viewEvents ] );
     }
 
@@ -124,7 +124,7 @@ class AdminController extends Controller
         ->update([
             'EventName' => $request->event_name,
             'EventDescription' => $request->event_description,
-             
+
         ]);
 
         $events->save();
@@ -158,7 +158,7 @@ class AdminController extends Controller
     public function editTeam($id)
     {
         $teams = team::where('team_id', $id)->first();
-        
+
         return view('Admin.editTeam', compact('teams'));
     }
 
@@ -170,7 +170,8 @@ class AdminController extends Controller
         DB::table('team')->where('team_id', $id)->update([
             'staff_name' => $request->staff_name,
             'staff_role' => $request->staff_role,
-            'display_image' => $request->display_image
+            'display_image' => $request->display_image,
+            'display_image' => ' '
         ]);
 
         //return $teams;
@@ -182,7 +183,7 @@ class AdminController extends Controller
     public function editAddo()
     {
         $campus_data= addo::find(1);
-            
+
         return view('Admin.addo' , ['campus_data' => $campus_data ]);
 
     }
@@ -211,7 +212,7 @@ class AdminController extends Controller
             'campus_description2' => $request->campus_description,
             'campus_image2' => $request->campus_image,
         ]);
-        
+
         $badore->save();
         //return $badore;
 
@@ -220,7 +221,7 @@ class AdminController extends Controller
 
     public function addo_gallery()
     {
-        return view('Admin.addoImages'); 
+        return view('Admin.addoImages');
 
     }
 
@@ -231,13 +232,13 @@ class AdminController extends Controller
 
     public function openAccessGallery()
     {
-        return 'I got here'; 
+        return 'I got here';
     }
 
     public function editBadore()
     {
 
-        $campus_data= badore::find(1); 
+        $campus_data= badore::find(1);
 
         return view('Admin.badore' , ['campus_data'=> $campus_data]);
     }
@@ -275,7 +276,7 @@ class AdminController extends Controller
 
     public function updateYoutubeVideos($id, Request $request)
     {
-        
+
         $videos = youtube::where('youtube_id', $id)->first();
 
         DB::table('youtube')
@@ -284,13 +285,13 @@ class AdminController extends Controller
             'video_name' => $request->video_name,
             'youtube_url' => $request->youtube_url,
             'video_description' => $request->video_description,
-        ]); 
+        ]);
 
         $videos->save();
        //return 'updated successfully!';
 
        return redirect()->route('admin.youtubeView');
-    
+
     }
 
     public function viewEventImage(Request $request)
@@ -302,7 +303,7 @@ class AdminController extends Controller
 
     public function admin_badore_images()
     {
-        return view('Admin.badoreImages'); 
+        return view('Admin.badoreImages');
     }
 
     public function admin_addo_images()

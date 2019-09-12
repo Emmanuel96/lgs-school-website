@@ -26,7 +26,7 @@
 
     <style>
       nav{
-        background-color: black; 
+        background-color: black;
       }
     </style>
   </head>
@@ -61,10 +61,14 @@
             <li class= "nav-item">
 			  <a class = "nav-link js-scroll-trigger" href = "#careers"> Careers</a>
 			</li>
-			<li class = "nav-item">
+			{{-- <li class = "nav-item">
 			  <a class = "nav-link js-scroll-trigger" href= "#youtube-channel"> LordsGate TV</a>
-			</li>
-			
+			</li> --}}
+
+			<li class = "nav-item">
+                <a class = "nav-link js-scroll-trigger" href= "#admissions"> Admissions </a>
+            </li>
+
 			<li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
@@ -94,7 +98,7 @@
           </div>
         </div>
         <div class="row text-center">
-          
+
           <div class="col-md-6">
   			    <img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
             <h4 class="service-heading"> {{$campus_name1}} </h4>
@@ -134,11 +138,45 @@
                 <h4>{!! $event->EventName !!} </h4>
                 <p class="text-muted">{!! $event->EventDescription !!}</p>
               </div>
-            </div>        
+            </div>
           @endforeach
           </div>
       </div>
     </section>
+
+     <!-- Youtube Channel -->
+     <section class="bg-light" id="portfolio">
+        <div class="container">
+          <div class="row" id = "youtube-channel" >
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading text-uppercase">Youtube Videos </h2>
+              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+          </div>
+
+          <div class="row">
+          @foreach($youtubes as $youtube)
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-play fa-3x"></i>
+                  </div>
+                </div>
+                <!---  <iframe style = "width: 99.9%; " height = "350" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                !-->
+            <img class="img-fluid" src="/images/portfolio/{{ $youtube->display_image }}" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>{{ $youtube->video_name }}</h4>
+                <p class="text-muted">{{ $youtube->image_description }}</p>
+              </div>
+            </div>
+          @endforeach
+        </div>
+        </div>
+        </div>
+      </section>
 
     <!-- About -->
     <section id="about">
@@ -230,7 +268,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 text-center">
             <a href="#" class = "text-center">
-					
+
 				<h5>"We were all correct."</h5>
             </a>
           </div>
@@ -270,7 +308,7 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-				          
+
                   <div class="form-group">
                     <input class="form-control" id="name" type="text" placeholder="Age *" required="required" data-validation-required-message="Please Enter your age">
                     <p class="help-block text-danger"></p>
@@ -285,7 +323,7 @@
                     <p class = "help-block text-danger"></p>
                   </div>
                 </div>
-                
+
 
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
@@ -299,40 +337,31 @@
       </div>
     </section>
 
-  <!-- Youtube Channel -->
-    <section class="bg-light" id="portfolio">
-      <div class="container">
-        <div class="row" id = "youtube-channel" >
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Youtube Videos </h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
+   <!-- Services -->
+   <section id="admissions">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Admissions</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
+      </div>
+      <div class="row text-center">
 
-        <div class="row">
-        @foreach($youtubes as $youtube)
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-play fa-3x"></i>
-                </div>
-              </div>
-		      <!---  <iframe style = "width: 99.9%; " height = "350" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			  
-			  !-->
-          <img class="img-fluid" src="/images/portfolio/{{ $youtube->display_image }}" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>{{ $youtube->video_name }}</h4>
-              <p class="text-muted">{{ $youtube->image_description }}</p>
-            </div>
-          </div>
-        @endforeach
-      </div>       
+        <div class="col-md-6">
+                <img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
+          <h4 class="service-heading">Early Years (0 - 5 Year olds)</h4>
+          {{-- <p class="text-muted">Early Years ( 0 -5 )</p> --}}
+        </div>
+        <div class = "col-md-6">
+                 <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
+          <h4 class="service-heading">Primary Years (5 - 10 Year olds)</h4>
+          {{-- <p class="text-muted">Primary Years (5 - 10 Year olds)</p> --}}
+        </div>
       </div>
-      </div>
-    </section>
-	
+    </div>
+  </section>
+
     <!-- Contact -->
     <section id="contact">
       <div class="container">
@@ -407,10 +436,10 @@
           <div class="col-md-4">
             <ul class="list-inline quicklinks">
               <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
+                Addo Road Badore, Ajah.
               </li>
               <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
+                <a href="#">Call 07037699184</a>
               </li>
             </ul>
           </div>
@@ -438,49 +467,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_6.jpg')}}"alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_1.jpg')}}" alt="">
-						</a>
-						
+						</Addo>
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_2.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_3.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_4.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_5.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -491,7 +520,7 @@
         </div>
       </div>
     </div>
-	
+
 	 <!-- Youtube Modal 1-->
     <div class="portfolio-modal modal fade" id="youtubeModal1" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -507,12 +536,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Video Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -545,49 +574,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_1.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_2.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_3.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_4.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_5.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/prefect/prefect_6.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -614,12 +643,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Video Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -651,49 +680,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_1.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_2.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_3.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_4.jpg')}}"alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_5.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/staff/staff_6.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -720,12 +749,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Video Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -757,49 +786,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -810,7 +839,7 @@
         </div>
       </div>
     </div>
-	
+
 	<!-- Youtube Modal 4-->
     <div class="portfolio-modal modal fade" id="youtubeModal4" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -826,12 +855,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Video Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -863,49 +892,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -932,12 +961,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Event Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -971,49 +1000,49 @@
 					<div class="row">
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						  
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
 						</a>
-					   
+
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-						</a>					   
+						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
-						 
+
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
 						</a>
-						
+
 					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
@@ -1024,7 +1053,7 @@
         </div>
       </div>
     </div>
-	
+
 	<!-- Youtube Modal 6-->
     <div class="portfolio-modal modal fade" id="youtubeModal6" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -1040,12 +1069,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Event Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  
+
 				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-                 
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-calendar-check-o"></i>
                     More Events</button>
