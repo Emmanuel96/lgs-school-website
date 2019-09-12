@@ -28,7 +28,44 @@
       nav{
         background-color: black;
       }
+
+      .dropbtn {
+            background-color: transparent;
+            color: white;
+            /* padding: 16px; */
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
     </style>
+
+
   </head>
 
   <body id="page-top">
@@ -53,20 +90,34 @@
               <a class="nav-link js-scroll-trigger" href="#portfolio">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              {{-- <a class="nav-link js-scroll-trigger" href="#about">About</a> --}}
+              <div class = "dropdown">
+                    <a class="nav-link dropbtn">About</a>
+                    {{-- <button class = "dropbtn">Dropdown</button> --}}
+                    <div class = "dropdown-content">
+                        <a class="js-scroll-trigger" href="#about">Our History</a>
+                        <a class="js-scroll-trigger" href="#team">Team</a>
+                        <a class="js-scroll-trigger" href="#mission">Mission</a>
+                    </div>
+               </div>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-            </li>
+            </li> --}}
             <li class= "nav-item">
 			  <a class = "nav-link js-scroll-trigger" href = "#careers"> Careers</a>
 			</li>
-			{{-- <li class = "nav-item">
-			  <a class = "nav-link js-scroll-trigger" href= "#youtube-channel"> LordsGate TV</a>
-			</li> --}}
 
 			<li class = "nav-item">
-                <a class = "nav-link js-scroll-trigger" href= "#admissions"> Admissions </a>
+                <div class = "dropdown">
+                    <a class="nav-link dropbtn">Admission</a>
+                    {{-- <button class = "dropbtn">Dropdown</button> --}}
+                    <div class = "dropdown-content">
+                        <a class="js-scroll-trigger" href="#admissionhowto">How To</a>
+                        <a class="js-scroll-trigger" href="#academics">Academics</a>
+                    </div>
+                </div>
+                {{-- <a class = "nav-link js-scroll-trigger" href= "#admissions"> Admissions </a> --}}
             </li>
 
 			<li class="nav-item">
@@ -263,7 +314,7 @@
     </section>
 
     <!-- Clients -->
-    <section class="py-5" style = "background-color:#212529; margin-bottom: 10px;">
+    <section id="mission" class="py-5" style = "background-color:#212529; margin-bottom: 10px;">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 text-center">
@@ -338,7 +389,7 @@
     </section>
 
    <!-- Services -->
-   <section id="admissions">
+   <section id="academics">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
