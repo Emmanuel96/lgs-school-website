@@ -388,7 +388,50 @@
       </div>
     </section>
 
-   <!-- Services -->
+    {{-- How to --}}
+    <section id="admissionhowto">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Admission Process</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+            </div>
+            <div class="row">
+            @foreach( $abouts as $about_detail)
+            <div class="col-lg-12">
+                <ul class="timeline">
+                <li>
+                    <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="{{URL::asset('images/about/1.jpg')}}" alt="">
+                    </div>
+                    <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>{{$about_detail->year_range}}</h4>
+                        <h4 class="subheading">{{$about_detail->year_heading}}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{{$about_detail->year_description}}</p>
+                    </div>
+                    </div>
+                </li>
+                @endforeach
+
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                    <h4>Apply
+                        <br>To Our
+                        <br>School!</h4>
+                    </div>
+                </li>
+                </ul>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+   <!-- Academics -->
    <section id="academics">
     <div class="container">
       <div class="row">
