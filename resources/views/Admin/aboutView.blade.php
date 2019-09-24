@@ -12,7 +12,7 @@
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                 
+
                 </div>
               </div>
             </div>
@@ -27,14 +27,14 @@
                   <div class="x_title">
                     <h2>Responsive Header<small>-- For Admin Users</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                     
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                     </p>
-					
+
 					  <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -76,14 +76,9 @@
 							<td>{!! $about->year_range !!}</td>
 							<td>{!! $about->year_heading !!}</td>
 							<td>{!! $about->year_description !!}</td>
-							<td align= "center">
-<<<<<<< HEAD
-								<a href = "{{ route('admin.edit_about',[$about->about_id])}}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
-              </td>
-=======
-								<a href = "{!! route('admin.editAbout', [$about->about_id]) !!}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
-							</td>	
->>>>>>> 175ccb98198baecb8aaabf336ce7f057d8e5b4f7
+							<td>
+                            <a href = "/admin/edit/about/{{ $about->about_id }}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
+							</td>
 						</tr>
                 @endforeach
             </tbody>
@@ -98,4 +93,3 @@
         @endsection
 
 							</td>
-            

@@ -314,14 +314,19 @@
     </section>
 
     <!-- Clients -->
-    <section id="mission" class="py-5" style = "background-color:#212529; margin-bottom: 10px;">
+    <section id="mission" class="py-5" style = "background-color:white; margin-bottom: 10px;">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 col-sm-12 text-center">
-            <a href="#" class = "text-center">
+          <div class="col-md-12 col-sm-12 text-center" style = "color: purple">
+            <div class = "text-center">
+                <h5 style= "text-align:left;">- Our Mission:</h5>
+				<h5>"To assist every child discover their innate potential and cultivate educational skills required for continuous creativity."</h5>
+            </div>
 
-				<h5>"We were all correct."</h5>
-            </a>
+            <div style="margin-top: 50px;" class = "text-center">
+                <h5 style = "margin-top: 15px; text-align: left;">- Our Vision:</h5>
+				<h5>"To raise future ICONS, with quality education and positive values for a balanced life."</h5>
+            </div>
           </div>
         </div>
       </div>
