@@ -157,25 +157,35 @@ class AdminController extends Controller
 
     public function editTeam($id)
     {
-        $teams = team::where('team_id', $id)->first();
+        $team = team::where('team_id', $id)->first();
 
-        return view('Admin.editTeam', compact('teams'));
+        return view('Admin.editTeam', compact('team'));
     }
 
     public function updateTeam($id, Request $request)
     {
-        $teams = team::where('team_id', $id)->first();
-        //dd($request->all());
+        $team = team::where('team_id', $id)->first();
 
+        //dd($request->all());
+        //SAVE IMAGE
+            //firstly reduce the size of the image
+            $img = imagecreatefromjpeg($request->file('display_image'));
+
+            header('Content-Type: image/jpeg');
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/team/'.$id.'.jpeg', 25);
+
+        //END SAVE IMAGE
+
+        // return 'i got here';
         DB::table('team')->where('team_id', $id)->update([
             'staff_name' => $request->staff_name,
             'staff_role' => $request->staff_role,
-            'display_image' => $request->display_image,
-            'display_image' => ' '
+            'display_image' => $id.'.jpeg'
         ]);
 
         //return $teams;
-        $teams->save();
+        $team->save();
 
         return redirect()->route('admin.teamView');
     }

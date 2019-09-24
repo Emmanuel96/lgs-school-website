@@ -285,7 +285,7 @@
           @foreach($teams as $team)
             <div class="col-sm-4">
               <div class="team-member">
-                <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/1.jpg')}}" alt="">
+                <img class="mx-auto rounded-circle" src="{{URL::asset('images/team/'.$team->display_image)}}" alt="">
                 <h4>{!! $team -> staff_name !!}</h4>
                 <p class="text-muted">{!! $team -> staff_role !!}</p>
                 <ul class="list-inline social-buttons">
