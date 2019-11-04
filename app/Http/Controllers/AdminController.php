@@ -19,7 +19,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function editHeader()
@@ -195,12 +195,20 @@ class AdminController extends Controller
         $campus_data= addo::find(1);
 
         return view('Admin.addo' , ['campus_data' => $campus_data ]);
-
     }
 
     public function updateAddo(Request $request)
     {
         $addo = addo::find(1);
+
+        if($request->file('new_campus_image') != null){
+            $img = imagecreatefromjpeg($request->file('new_campus_image'));
+
+            header('Content-Type: image/jpeg');
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/campus1.jpg', 25);
+        }
+
         DB::table('addo')->where('addo_id', 1)->update([
             'campus_name1' => $request->campus_name,
             'campus_description1' => $request->campus_description,
@@ -216,6 +224,14 @@ class AdminController extends Controller
     {
         $badore = badore::find(1);
         //dd($request->all());
+
+        if($request->file('new_campus_image') != null){
+            $img = imagecreatefromjpeg($request->file('new_campus_image'));
+
+            header('Content-Type: image/jpeg');
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/campus2.jpg', 25);
+        }
 
         DB::table('badore')->where('badore_id', 1)->update([
             'campus_name2' => $request->campus_name,

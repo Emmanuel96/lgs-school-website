@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@home');
 
-Route::get('/login', 'AuthenticateController@login')->name('login');
+// Route::get('/login', 'AuthenticateController@login')->name('login');
 
 //header
 Route::get('/admin/edit/header','AdminController@editHeader' )->name('admin.header');
@@ -85,5 +85,9 @@ Route::get('/admin/campus/baodre/gllery/2', 'AdminController@badore_gallery');
 Route::post('/admin/addo/edit', 'AdminController@post_addo');
 
 Route::post('/admin/badore/post', 'AdminController@post_badore');
+Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+Auth::routes();
 

@@ -104,9 +104,9 @@
             {{-- <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
             </li> --}}
-            <li class= "nav-item">
+            {{-- <li class= "nav-item">
 			  <a class = "nav-link js-scroll-trigger" href = "#careers"> Careers</a>
-			</li>
+			</li> --}}
 
 			<li class = "nav-item">
                 <div class = "dropdown">
@@ -333,7 +333,7 @@
     </section>
 
  <!-- Carreers -->
-    <section id="careers">
+    {{-- <section id="careers">
       <div class="container" style = "background-color:white; ">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -391,7 +391,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
     {{-- How to --}}
     <section id="admissionhowto">
@@ -575,7 +575,7 @@
 						<a class="portfolio-link" data-toggle="modal" >
 
 						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_1.jpg')}}" alt="">
-						</Addo>
+                        </a>
 
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">

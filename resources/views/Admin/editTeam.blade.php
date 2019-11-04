@@ -81,7 +81,7 @@
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12"> Image<span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <img name = "current_image" class = "img-responsive" alt = " No image"  id = "display-image" src =  "/images/team/{!! $team->display_image !!}"   >
-                            <input class="form-control col-md-7 col-xs-12" type="file" name = "display_image" >
+                            <input class="form-control col-md-7 col-xs-12" type="file" name = "display_image"  required>
                             <input value = "{!! $team->display_image !!}" type = "file " id = "display-image" />
                         </div>
                     </div>

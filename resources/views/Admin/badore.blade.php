@@ -1,7 +1,7 @@
 @extends('Admin.AdminLayouts.admin_main_layout')
  @section('content')
 
- 
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -12,7 +12,7 @@
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                 
+
                 </div>
               </div>
             </div>
@@ -27,14 +27,14 @@
                   <div class="x_title">
                     <!-- <h2>Each Campus has a Gallery<small> <a class = "btn btn-primary" href = "/admin/campus/badore/gallery/1" >View Gallery</a></small></h2> -->
                     <ul class="nav navbar-right panel_toolbox">
-                     
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                     </p>
-					
+
 					  <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -61,7 +61,7 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" action = "{!! route('admin.updateBadore') !!}" enctype="multipart/form-data" METHOD = "POST" data-parsley-validate class="form-horizontal form-label-left">
- 
+
                       <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
 
                       <div class="form-group">
@@ -81,14 +81,14 @@
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Campus Image <span class = "required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="campus_image"  value = "{{$campus_data->campus_name2}}" class="form-control col-md-7 col-xs-12" type="file"  maxlength = "15">
+                          <input id="campus_image" name = "new_campus_image"  class="form-control col-md-7 col-xs-12" type="file" required>
                         </div>
                       </div>
 
                       <input type = "hidden" name = "campus_image" value = "{{$campus_data->campus_image2 }}"/>
 
-                     
-                     
+
+
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
