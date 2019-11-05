@@ -7,7 +7,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit {{ $events->EventName }}</h3>
+                <h3>Edit </h3>
               </div>
 
               <div class="title_right">
@@ -60,39 +60,23 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateEvent', [$events->Event_id]) }}" class="form-horizontal form-label-left">
+                    <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.eventImage.update', [$events->event_image_id]) }}" class="form-horizontal form-label-left">
                         <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
-
-					  <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Event Name<span class = "required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="event-name" class="form-control col-md-7 col-xs-12"  type="text" name="event_name" maxlength = "" value="{{ $events->EventName }}">
+                        <div class="form-group">
+                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12"> Display Image<span class = "required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <img name = "current_image" class = "img-responsive" alt = " No image"  id = "display-image" src =  "/images/{{ $events->event_image }}"   >
+                                <input class="form-control col-md-7 col-xs-12" name = "new_event_image" type="file">
+                                <input  value = "{{$events->event_image }}" type = "hidden" id = "" name = "current_image"/>
+                            </div>
                         </div>
-                      </div>
 
-                      <div class="form-group">
-                        <label for="event-description" class="control-label col-md-3 col-sm-3 col-xs-12">Event Description<span class = "required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="event-description" class="form-control col-md-7 col-xs-12"  type="text" name="event_description" maxlength = "" value="{{ $events->EventDescription }}">
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            </div>
                         </div>
-                      </div>
-
-
-                <div class="form-group">
-                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12"> Display Image<span class = "required">*</span></label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "display-image" src =  "/images/portfolio/{{ $events->Display_image }}"   >
-                    <input class="form-control col-md-7 col-xs-12" name = "new_display_image" type="file">
-                    <input  value = "{{$events->Display_image }}" type = "hidden" id = "" name = "current_image"/>
-                    </div>
-                </div>
-
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Update</button>
-                        </div>
-                      </div>
 
                     </form>
                   </div>

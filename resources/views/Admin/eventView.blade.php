@@ -1,7 +1,7 @@
 
 @extends('Admin.AdminLayouts.admin_main_layout')
  @section('content')
- 
+
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -13,7 +13,7 @@
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                 
+
                 </div>
               </div>
             </div>
@@ -28,14 +28,14 @@
                   <div class="x_title">
                     <h2>Responsive Header<small>-- For Admin Users</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                     
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                     </p>
-					
+
 					  <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -69,7 +69,7 @@
 							  <th>Actions</th>
 							</tr>
             </thead>
-            
+
 						<tbody>
               @foreach($viewEvents as $eventV)
 						<tr>
@@ -78,9 +78,9 @@
 							<td>
                 <a href = "{{ route('admin.editEvent', [ $eventV->Event_id ])}}" title="edit"  class = "btn btn-primary"><i class = "fa fa-edit"></i></a>
 								<a href="{{ route('admin.deleteEvent', [ $eventV->Event_id ]) }}" title= "delete" class = "btn btn-danger"><i class = "fa fa-trash"></i></a>
-								<a href = "lgs_event_images.html" title = "view images" class = "btn btn-success"><i class = "fa fa-image "></i></a>
+                            <a href = "{{ route('admin.eventImage', [ $eventV->Event_id ]) }}" title = "view images" class = "btn btn-success"><i class = "fa fa-image "></i></a>
 							</td>
-							
+
             </tr>
             @endforeach
 </tbody>

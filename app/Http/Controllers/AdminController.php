@@ -119,12 +119,25 @@ class AdminController extends Controller
         //dd($request->all());
         //return $request->event_name;
 
+        //does this actually return anything?
+        if($request->hasFile('new_display_image')){
+            $display_image = $request->file('new_display_image');
+            $img = imagecreatefromjpeg($display_image);
+
+            header('Content-Type: image/jpg');
+
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/portfolio/0'.$events->Event_id.'-thumbnail.jpg', 25);
+        } else {
+            $display_image = $request->current_image;
+        }
+
         DB::table('event')
         ->where('Event_id', $id)
         ->update([
             'EventName' => $request->event_name,
             'EventDescription' => $request->event_description,
-
+            'Display_image' => '0'.$events->Event_id.'-thumbnail.jpg'
         ]);
 
         $events->save();
@@ -320,12 +333,44 @@ class AdminController extends Controller
 
     }
 
-    public function viewEventImage(Request $request)
+    public function viewEventImage($id, Request $request)
     {
-        $images=DB::table('image')->get();
+        $images= DB::table('event_gallery')->where('event_id', '=', $id)->get();
+        // return $images;
+
         return view('Admin.eventImage',['images'=>$images]);
     }
 
+    public function editEventImage($id, Request $request){
+        $eventImage = DB::table('event_gallery')->where('event_image_id', '=', $id)->first();
+        return view('Admin.editEventImage', ['events' => $eventImage]);
+    }
+
+    public function updateEventImage($id, Request $request){
+
+        if($request->hasFile('new_event_image')){
+            $display_image = $request->file('new_event_image');
+            $img = imagecreatefromjpeg($display_image);
+
+            header('Content-Type: image/jpg');
+
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/'.$id.'.jpg', 25);
+        } else {
+            $display_image = $request->current_image;
+        }
+
+        $eventImage = DB::table('event_gallery')
+            ->where('event_image_id', '=', $id)
+            ->update([
+            'event_image' => $id.'.jpg'
+        ]);
+
+
+        $eventImage = DB::table('event_gallery')->where('event_image_id', '=', $id)->first();
+        $eventImages = DB::table('event_gallery')->where('event_id', '=', $eventImage->event_id)->get();
+        return view('Admin.eventImage', ['images' => $eventImages]);
+    }
 
     public function admin_badore_images()
     {

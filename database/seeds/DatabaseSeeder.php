@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamSeeder::class);
         $this->call(YoutubeSeeder::class);
         $this->call(AddoSeeder::class);
+        $this->call(EventGallery::class);
        // $this->call(TeamSeeder::class);
 
         Model::reguard();

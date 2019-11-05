@@ -177,7 +177,7 @@
         <div class="row">
           @foreach($events as $event)
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1" onClick = "populateEventModal({{$event->Event_id}})">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
                     <i class="fas fa-image fa-3x"></i>
@@ -562,50 +562,12 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Event Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-				  <div class= "container">
-					<div class="row">
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_6.jpg')}}"alt="">
-						</a>
+                  <div  class= "container">
+                        <div class ="row" id ="port-container">
 
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal" >
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_1.jpg')}}" alt="">
-                        </a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_2.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_3.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal" >
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_4.jpg')}}" alt="">
-						</a>
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/cheer_5.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					</div>
+                        </div>
+                  </div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
 
@@ -883,6 +845,7 @@
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
 				  <div class= "container">
 					<div class="row">
+                        {{-- @foreach() --}}
 					  <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal">
 
@@ -890,40 +853,7 @@
 						</a>
 
 					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal" >
 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal" >
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
-						</a>
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/06-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
 					</div>
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
@@ -1198,6 +1128,26 @@
 
     <!-- Custom scripts for this template -->
     <script src="{{URL::asset('js/agency.min.js')}}"></script>
+
+    <script>
+        function populateEventModal( id ){
+            var values = @json($eventsImages);
+            var target = document.getElementById('port-container');
+            target.innerHTML = " ";
+
+
+            values.forEach(function(element){
+                if(element.event_id === id){
+                   target.innerHTML +=  "<div class='col-md-4 col-sm-6 portfolio-item'>" +
+                                        "<a class='portfolio-link' data-toggle='modal'>" +
+                                        "<img src = 'images/" +
+                                        element.event_image +
+                                        "' /> </a> </div>";
+                }
+
+            })
+        }
+    </script>
 
   </body>
 

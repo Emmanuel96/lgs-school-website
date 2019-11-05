@@ -68,11 +68,12 @@ Route::get('/admin/view/teamView', 'AdminController@viewTeam')->name('admin.team
 Route::get('/admin/edit/team/{id}', 'AdminController@editTeam')->name('admin.editTeam');
 Route::post('/admin/update/team/{id}', 'AdminController@updateTeam')->name('admin.updateTeam');
 
-
 Route::get('/admin/view/login','AdminController@Login')->name('admin.login');
 
 
-Route::get('/admin/view/eventImage', 'AdminController@viewEventImage')->name('admin.eventImage');
+Route::get('/admin/view/eventImage/{id}', 'AdminController@viewEventImage')->name('admin.eventImage');
+Route::get('/admin/edit/eventImage/{id}', 'AdminController@editEventImage')->name('admin.eventImage.edit');
+Route::post('/admin/update/eventImage/{id}', 'AdminController@updateEventImage')->name('admin.eventImage.update');
 
 Route::get('/home', 'HomeController@home')->name('home');
 

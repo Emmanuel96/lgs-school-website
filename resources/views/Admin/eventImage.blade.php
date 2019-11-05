@@ -1,6 +1,6 @@
 @extends('Admin.AdminLayouts.admin_main_layout')
  @section('content')
- 
+
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -11,7 +11,7 @@
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                 
+
                 </div>
               </div>
             </div>
@@ -44,201 +44,33 @@
                     <div class="row">
 
                       <p>Images From Our Experiences At The Event</p>
+                      @foreach($images as $event_image)
+                        <div class="col-md-55">
+                            <div class="thumbnail">
+                            <div class="image view view-first">
+                                <img style="width: 100%; display: block;" src="{{URL::asset('images/'.$event_image->event_image)}}" alt="image" />
+                                <div class="mask no-caption">
+                                <div class="tools tools-bottom">
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                <a href="{{route('admin.eventImage.edit', [$event_image->event_image_id])}}"><i class="fa fa-pencil"></i></a>
+                                    <a href="#"><i class="fa fa-times"></i></a>
+                                </div>
+                                </div>
+                            </div>
 
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
                             </div>
-                          </div>
-                          <div class="caption">
-                            <p>Image for the South</p>
-                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>Image for the South</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>Image for the South</p>
-                          </div>
-                        </div>
-                      </div>
+                      @endforeach
 
 
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/media.jpg')}}" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Image</p>
-                          </div>
-                        </div>
-                      </div>
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-		
+
           </div>
         </div>
         <!-- /page content -->

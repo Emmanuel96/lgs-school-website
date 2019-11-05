@@ -61,7 +61,7 @@ class HomeController extends Controller
          'teams' => team::all(),
          'events' => event::all(),
          'youtubes' => $youtubes,
-         'events' => $events,
+         'eventsImages' => DB::table('event_gallery')->get()->toArray(),
          ]);
     }
 
@@ -98,7 +98,7 @@ class HomeController extends Controller
          'teams' => team::all(),
          'events' => event::all(),
          'youtubes' => $youtubes,
-         'events' => $events,
+         'eventsImages' => DB::table('event_gallery')->get()->toArray(),
          ]);
     }
 }
