@@ -207,7 +207,7 @@
           <div class="row">
           @foreach($youtubes as $youtube)
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1">
+              <a class="portfolio-link" data-toggle="modal" href="#youtubeModal1" onclick = "openYoutubeModal( '{{$youtube->youtube_url}}' )" />
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
                     <i class="fa fa-play fa-3x"></i>
@@ -596,8 +596,9 @@
                   <!-- Project Details Go Here -->
                   <h3 class="text-uppercase">Video Name</h3>
                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <div id = "framediv">
 
-				  <iframe width="560" height="315" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
 
 				  </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
@@ -1145,6 +1146,17 @@
                 }
 
             })
+        }
+    </script>
+
+    <script>
+        function openYoutubeModal(url){
+            document.getElementById('framediv').innerHTML = "<iframe width='560' height='315'"+
+                                                           "id='youtubeframe' frameborder='0'"+
+                                                           "allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' "+
+                                                           "allowfullscreen src = '"+ url + "' />"
+                                                           "</iframe>";
+
         }
     </script>
 
