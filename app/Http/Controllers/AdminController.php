@@ -318,9 +318,19 @@ class AdminController extends Controller
 
         $videos = youtube::where('youtube_id', $id)->first();
 
+
+        if($request->file('display_image') != null){
+            $img = imagecreatefromjpeg($request->file('display_image'));
+
+            header('Content-Type: image/jpeg');
+            //reduce size of tmp image and save
+            $img_save = imagejpeg($img,'images/youtube/'.$id.'.jpg', 25);
+        }
+
         DB::table('youtube')
         ->where('youtube_id', $id)
         ->update([
+            'display_image' => $id.'.jpg',
             'video_name' => $request->video_name,
             'youtube_url' => $request->youtube_url,
             'video_description' => $request->video_description,

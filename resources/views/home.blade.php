@@ -201,9 +201,8 @@
           <div class="row" id = "youtube-channel" >
             <div class="col-lg-12 text-center">
               <h2 class="section-heading text-uppercase">Youtube Videos </h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              <h3 class="section-subheading text-muted">Our Youtube Channel With Our Kids </h3>
             </div>
-          </div>
 
           <div class="row">
           @foreach($youtubes as $youtube)
@@ -216,7 +215,7 @@
                 </div>
                 <!---  <iframe style = "width: 99.9%; " height = "350" src="https://www.youtube.com/embed/8OERJQ4ssoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 !-->
-            <img class="img-fluid" src="/images/portfolio/{{ $youtube->display_image }}" alt="">
+            <img class="img-fluid" src="/images/youtube/{{ $youtube->display_image }}" alt="">
               </a>
               <div class="portfolio-caption">
                 <h4>{{ $youtube->video_name }}</h4>

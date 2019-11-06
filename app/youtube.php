@@ -8,13 +8,13 @@ use Illuminate\Notifications\Notifiable;
 class youtube extends Model
 {
     //
-    use Notifiable; 
+    use Notifiable;
 
-    protected $table = "youtube"; 
+    protected $table = "youtube";
 
     protected $primaryKey = "youtube_id";
 
     protected $fillable = [
-        'video_name', 'youtube_url', 'video_description','video'
+        'video_name', 'display_image', 'youtube_url', 'video_description','video'
     ];
 }
