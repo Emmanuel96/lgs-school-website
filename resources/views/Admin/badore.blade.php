@@ -75,7 +75,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" value = "{{$campus_data->campus_name2}}" maxlength = "60">Campus Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="campus_description" name="campus_description" value = "{{$campus_data->campus_description2}}" required="required" class="form-control col-md-7 col-xs-12" maxlength = "20">
+                          <input type="text" id="campus_description" name="campus_description" value = "{{$campus_data->campus_description2}}" required="required" class="form-control col-md-7 col-xs-12" maxlength = "100">
                         </div>
                       </div>
                       <div class="form-group">
