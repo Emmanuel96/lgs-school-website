@@ -95,7 +95,7 @@
                     <a class="nav-link dropbtn">About</a>
                     {{-- <button class = "dropbtn">Dropdown</button> --}}
                     <div class = "dropdown-content">
-                        <a class="js-scroll-trigger" href="#about">Our History</a>
+                        <a class="js-scroll-trigger" href="#about">Our History Shaped Our Believe System. We believe in hardwork.</a>
                         <a class="js-scroll-trigger" href="#team">Team</a>
                         <a class="js-scroll-trigger" href="#mission">Mission</a>
                     </div>
@@ -398,7 +398,7 @@
             <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Admission Process</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Here's how you can join our Lords Gate Family.</h3>
             </div>
             </div>
             <div class="row">
