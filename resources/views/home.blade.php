@@ -177,7 +177,7 @@
         <div class="row">
           @foreach($events as $event)
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1" onClick = "populateEventModal({{$event->Event_id}})">
+              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1" onClick = "populateEventModal({{$event->Event_id}},'{{$event->EventName}}','{{$event->EventDescription}}')">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
                     <i class="fas fa-image fa-3x"></i>
@@ -559,8 +559,8 @@
               <div class="col-lg-12 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h3 class="text-uppercase">Event Name</h3>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <h3 id = "selectedEventName" class="text-uppercase"></h3>
+                  <p  id = "selectedEventDescription" class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
 
                   <div  class= "container">
                         <div class ="row" id ="port-container">
@@ -1128,17 +1128,19 @@
     <script src="{{URL::asset('js/agency.min.js')}}"></script>
 
     <script>
-        function populateEventModal( id ){
+        function populateEventModal( id, name, description ){
             var values = @json($eventsImages);
             var target = document.getElementById('port-container');
             target.innerHTML = " ";
-
+            //change the value of the name and the description for the event
+            document.getElementById('selectedEventName').innerHTML = name;
+            document.getElementById('selectedEventDescription').innerHTML = description;
 
             values.forEach(function(element){
                 if(element.event_id === id){
                    target.innerHTML +=  "<div class='col-md-4 col-sm-6 portfolio-item'>" +
                                         "<a class='portfolio-link' data-toggle='modal'>" +
-                                        "<img src = 'images/" +
+                                        "<img class = 'img-fluid' src = 'images/" +
                                         element.event_image +
                                         "' /> </a> </div>";
                 }
