@@ -594,18 +594,16 @@
               <div class="col-lg-12 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h3 class="text-uppercase">Video Name</h3>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <h3 class="text-uppercase">Lords Gate Youtube</h3>
+                  {{-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> --}}
                   <div id = "framediv">
 
                   </div>
 
 				  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
+                  {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p> --}}
 
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-calendar-check-o"></i>
-                    More Events</button>
+
                 </div>
               </div>
             </div>
