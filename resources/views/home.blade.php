@@ -402,20 +402,20 @@
             </div>
             </div>
             <div class="row">
-            @foreach( $abouts as $about_detail)
+            @foreach( $admission as $adm)
             <div class="col-lg-12">
                 <ul class="timeline">
                 <li>
                     <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="{{URL::asset('images/about/1.jpg')}}" alt="">
+                    <img class="rounded-circle img-fluid" src="{{URL::asset('images/admission/$adm->admission_image')}}" alt="">
                     </div>
                     <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>{{$about_detail->year_range}}</h4>
-                        <h4 class="subheading">{{$about_detail->year_heading}}</h4>
+                        <h4>{{$adm->header}}</h4>
+                        {{-- <h4 class="subheading">{{$adm->sub_header}}</h4> --}}
                     </div>
                     <div class="timeline-body">
-                        <p class="text-muted">{{$about_detail->year_description}}</p>
+                        <p class="text-muted">{{$adm->sub_header}}</p>
                     </div>
                     </div>
                 </li>
@@ -447,12 +447,12 @@
       <div class="row text-center">
 
         <div class="col-md-6">
-                <img class = "img-fluid" src = "{{URL::asset('images/campus1.jpg')}}" />
+                <img class = "img-fluid" src = "{{URL::asset('images/admission/admission2.jpg')}}" />
           <h4 class="service-heading">Early Years (0 - 5 Year olds)</h4>
           {{-- <p class="text-muted">Early Years ( 0 -5 )</p> --}}
         </div>
         <div class = "col-md-6">
-                 <img class = "img-fluid" src = "{{URL::asset('images/campus2.jpg')}}" />
+                 <img class = "img-fluid" src = "{{URL::asset('images/admission/admission1.jpg')}}" />
           <h4 class="service-heading">Primary Years (5 - 10 Year olds)</h4>
           {{-- <p class="text-muted">Primary Years (5 - 10 Year olds)</p> --}}
         </div>
@@ -568,11 +568,9 @@
                         </div>
                   </div>
 				  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
+                  {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p> --}}
 
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-calendar-check-o"></i>
-                    More Events</button>
+
                 </div>
               </div>
             </div>

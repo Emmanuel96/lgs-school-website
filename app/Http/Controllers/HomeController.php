@@ -46,6 +46,8 @@ class HomeController extends Controller
         $events = event::all();
         $teams = team::all();
 
+        $admission = DB::table('admission')->get();
+
         return view('home', ['welcome_text'=> $header_data[0]->welcome_text,
 
         'intro_text' => $header_data[0]->intro_text,
@@ -62,6 +64,7 @@ class HomeController extends Controller
          'events' => event::all(),
          'youtubes' => $youtubes,
          'eventsImages' => DB::table('event_gallery')->get()->toArray(),
+         'admission' => $admission
          ]);
     }
 
@@ -83,6 +86,8 @@ class HomeController extends Controller
         $events = event::all();
         $teams = team::all();
 
+        $admission = DB::table('admission')->get();
+
         return view('home', ['welcome_text'=> $header_data[0]->welcome_text,
 
         'intro_text' => $header_data[0]->intro_text,
@@ -99,6 +104,7 @@ class HomeController extends Controller
          'events' => event::all(),
          'youtubes' => $youtubes,
          'eventsImages' => DB::table('event_gallery')->get()->toArray(),
+         'admission' => $admission
          ]);
     }
 }

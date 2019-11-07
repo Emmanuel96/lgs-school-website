@@ -57,6 +57,8 @@ Route::post('/admin/update/badore/{id}', 'AdminController@updateBadore')->name('
 Route::post('/admin/update/badore', 'AdminController@updateBadore')->name('admin.updateBadore');
 
 //youtube
+Route::get('/admin/create_one_more_youtube', 'AdminController@createNewVideo');
+Route::post('/admin/create/youtubeVideo', 'AdminController@addNewYoutubeVideo')->name('admin.create.youtube');
 Route::get('/admin/new/youtubeNew', 'AdminController@newYoutubeNew')->name('admin.youtubeNew');
 Route::get('/admin/show/youtubeView', 'AdminController@showYoutubeView')->name('admin.youtubeView');
 Route::get('/admin/edit/youtube/{id}', 'AdminController@editYoutubeVideos')->name('admin.editYouTube');
@@ -88,7 +90,9 @@ Route::post('/admin/addo/edit', 'AdminController@post_addo');
 Route::post('/admin/badore/post', 'AdminController@post_badore');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('admin/creation_of_admission_process', 'AdminController@admissionCreation');
 
+Route::get('admin/increase_events', 'AdminController@increaseEventNo');
 
 Auth::routes();
 

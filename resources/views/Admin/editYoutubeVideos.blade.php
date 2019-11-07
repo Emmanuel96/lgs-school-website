@@ -81,7 +81,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" maxlength = "255">Video Description<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="video_description" required="required" class="form-control col-md-7 col-xs-12" maxlength = "255" value="{!! $videos->video_description !!}">
+                          <input type="text" id="last-name" name="video_description" required="required" class="form-control col-md-7 col-xs-12" maxlength = "500" value="{!! $videos->video_description !!}">
                         </div>
                       </div>
 

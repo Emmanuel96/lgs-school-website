@@ -27,29 +27,29 @@ class AdminController extends Controller
 
         $header_data = DB::table('header')->selectRaw('*')->get();
 
-        return view('Admin.header', ['welcome_text'=> $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]);
+        return view('Admin.header', ['welcome_text' => $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]);
     }
 
     public function postHeader(Request $request)
     {
         //save the heder thing
         Header::where('id', 1)
-        ->update([
-            'welcome_text' => $request->welcome_text,
-            'intro_text' => $request->intro_text,
-            'button_text' => $request->button_text,
-        ]);
+            ->update([
+                'welcome_text' => $request->welcome_text,
+                'intro_text' => $request->intro_text,
+                'button_text' => $request->button_text,
+            ]);
     }
 
     public function postAbout($id, Request $request)
     {
         about::where('About_id', 1)
-        ->update([
-            'year_range' => $request->year_range,
-            'year_heading' => $request->year_heading,
-            'year_description' => $request->year_description,
-            'display_image'=> $request->display_image,
-        ]);
+            ->update([
+                'year_range' => $request->year_range,
+                'year_heading' => $request->year_heading,
+                'year_description' => $request->year_description,
+                'display_image' => $request->display_image,
+            ]);
 
         return $this->viewAbout($request);
     }
@@ -58,12 +58,10 @@ class AdminController extends Controller
     {
         $abouts = about::where('about_id', $id)->first();
 
-        return view('Admin.about' , ['abouts'=> $abouts]);
-
-
+        return view('Admin.about', ['abouts' => $abouts]);
     }
 
-    public function viewAbout(Request $request )
+    public function viewAbout(Request $request)
     {
         $abouts = DB::table('about')->get();
         //dd($abouts);
@@ -75,7 +73,7 @@ class AdminController extends Controller
     {
         $abouts = about::where('about_id', $id)->first();
 
-        return view('Admin.editAbout', [ 'abouts' => $abouts ]);
+        return view('Admin.editAbout', ['abouts' => $abouts]);
     }
 
     public function updateAbout($id, Request $request)
@@ -91,7 +89,6 @@ class AdminController extends Controller
         $abouts->save();
 
         return redirect()->route('admin.aboutView');
-
     }
 
     public function newEvent()
@@ -101,16 +98,16 @@ class AdminController extends Controller
 
     public function viewEvent()
     {
-        $viewEvents= event::all();
+        $viewEvents = event::all();
 
-        return view('Admin.eventView', [ 'viewEvents' => $viewEvents ] );
+        return view('Admin.eventView', ['viewEvents' => $viewEvents]);
     }
 
     public function editEvent($id)
     {
         $events = event::where('Event_id', $id)->first();
 
-        return view('Admin.editEvent', [ 'events' => $events ]);
+        return view('Admin.editEvent', ['events' => $events]);
     }
 
     public function updateEvent($id, Request $request)
@@ -120,29 +117,28 @@ class AdminController extends Controller
         //return $request->event_name;
 
         //does this actually return anything?
-        if($request->hasFile('new_display_image')){
+        if ($request->hasFile('new_display_image')) {
             $display_image = $request->file('new_display_image');
             $img = imagecreatefromjpeg($display_image);
 
             header('Content-Type: image/jpg');
 
             //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/portfolio/0'.$events->Event_id.'-thumbnail.jpg', 25);
+            $img_save = imagejpeg($img, 'images/portfolio/0' . $events->Event_id . '-thumbnail.jpg', 25);
         } else {
             $display_image = $request->current_image;
         }
 
         DB::table('event')
-        ->where('Event_id', $id)
-        ->update([
-            'EventName' => $request->event_name,
-            'EventDescription' => $request->event_description,
-            'Display_image' => '0'.$events->Event_id.'-thumbnail.jpg'
-        ]);
+            ->where('Event_id', $id)
+            ->update([
+                'EventName' => $request->event_name,
+                'EventDescription' => $request->event_description,
+                'Display_image' => '0' . $events->Event_id . '-thumbnail.jpg'
+            ]);
 
         $events->save();
         return redirect()->route('admin.eventView');
-
     }
 
     // public function deleteEvent($id)
@@ -160,7 +156,7 @@ class AdminController extends Controller
         $teams = team::all();
         //return $teams;
 
-        return view('Admin.teamView',['teams' => $teams ]);
+        return view('Admin.teamView', ['teams' => $teams]);
     }
 
     public function newTeam()
@@ -181,12 +177,12 @@ class AdminController extends Controller
 
         //dd($request->all());
         //SAVE IMAGE
-            //firstly reduce the size of the image
-            $img = imagecreatefromjpeg($request->file('display_image'));
+        //firstly reduce the size of the image
+        $img = imagecreatefromjpeg($request->file('display_image'));
 
-            header('Content-Type: image/jpeg');
-            //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/team/'.$id.'.jpeg', 25);
+        header('Content-Type: image/jpeg');
+        //reduce size of tmp image and save
+        $img_save = imagejpeg($img, 'images/team/' . $id . '.jpeg', 25);
 
         //END SAVE IMAGE
 
@@ -194,7 +190,7 @@ class AdminController extends Controller
         DB::table('team')->where('team_id', $id)->update([
             'staff_name' => $request->staff_name,
             'staff_role' => $request->staff_role,
-            'display_image' => $id.'.jpeg'
+            'display_image' => $id . '.jpeg'
         ]);
 
         //return $teams;
@@ -205,21 +201,21 @@ class AdminController extends Controller
 
     public function editAddo()
     {
-        $campus_data= addo::find(1);
+        $campus_data = addo::find(1);
 
-        return view('Admin.addo' , ['campus_data' => $campus_data ]);
+        return view('Admin.addo', ['campus_data' => $campus_data]);
     }
 
     public function updateAddo(Request $request)
     {
         $addo = addo::find(1);
 
-        if($request->file('new_campus_image') != null){
+        if ($request->file('new_campus_image') != null) {
             $img = imagecreatefromjpeg($request->file('new_campus_image'));
 
             header('Content-Type: image/jpeg');
             //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/campus1.jpg', 25);
+            $img_save = imagejpeg($img, 'images/campus1.jpg', 25);
         }
 
         DB::table('addo')->where('addo_id', 1)->update([
@@ -238,12 +234,12 @@ class AdminController extends Controller
         $badore = badore::find(1);
         //dd($request->all());
 
-        if($request->file('new_campus_image') != null){
+        if ($request->file('new_campus_image') != null) {
             $img = imagecreatefromjpeg($request->file('new_campus_image'));
 
             header('Content-Type: image/jpeg');
             //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/campus2.jpg', 25);
+            $img_save = imagejpeg($img, 'images/campus2.jpg', 25);
         }
 
         DB::table('badore')->where('badore_id', 1)->update([
@@ -261,7 +257,6 @@ class AdminController extends Controller
     public function addo_gallery()
     {
         return view('Admin.addoImages');
-
     }
 
     public function badore_gallery()
@@ -277,9 +272,9 @@ class AdminController extends Controller
     public function editBadore()
     {
 
-        $campus_data= badore::find(1);
+        $campus_data = badore::find(1);
 
-        return view('Admin.badore' , ['campus_data'=> $campus_data]);
+        return view('Admin.badore', ['campus_data' => $campus_data]);
     }
 
     public function viewAddoGallery()
@@ -298,10 +293,27 @@ class AdminController extends Controller
         return view('Admin.youtubeNew');
     }
 
+    public function createNewVideo()
+    {
+        DB::table('youtube')->insert([
+            'video_name' => 'ROAR2',
+            'youtube_url' => 'https://youtu.be/8OERJQ4ssoU',
+            'video_description' => 'Watch how these kids make a beautiful cover to Roar by Katy Perry with an Africanized beat...',
+            'video' => '',
+            'display_image' => '01-thumbnail.jpg',
+            'image_description' => 'Illustration',
+        ]);
+    }
+    public function addNewYoutubeVideo(Request $request)
+    {
+        return $request->all();
+        return redirect()->route('Admin.youtubeView');
+    }
+
     public function showYoutubeView(Request $request)
     {
         $viewVideos = youtube::all();
-       // return $viewVideos;
+        // return $viewVideos;
         return view('Admin.youtubeView')->with(compact('viewVideos'));
     }
 
@@ -310,62 +322,61 @@ class AdminController extends Controller
         $videos = youtube::where('youtube_id', $id)->first();
 
 
-        return view('Admin.editYoutubeVideos', ['videos'=> $videos]);
+        return view('Admin.editYoutubeVideos', ['videos' => $videos]);
     }
 
     public function updateYoutubeVideos($id, Request $request)
     {
-
         $videos = youtube::where('youtube_id', $id)->first();
 
-
-        if($request->file('display_image') != null){
+        if ($request->file('display_image') != null) {
             $img = imagecreatefromjpeg($request->file('display_image'));
 
             header('Content-Type: image/jpeg');
             //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/youtube/'.$id.'.jpg', 25);
+            $img_save = imagejpeg($img, 'images/youtube/' . $id . '.jpg', 25);
         }
 
         DB::table('youtube')
-        ->where('youtube_id', $id)
-        ->update([
-            'display_image' => $id.'.jpg',
-            'video_name' => $request->video_name,
-            'youtube_url' => $request->youtube_url,
-            'video_description' => $request->video_description,
-        ]);
+            ->where('youtube_id', $id)
+            ->update([
+                'display_image' => $id . '.jpg',
+                'video_name' => $request->video_name,
+                'youtube_url' => $request->youtube_url,
+                'video_description' => $request->video_description,
+            ]);
 
         $videos->save();
-       //return 'updated successfully!';
+        //return 'updated successfully!';
 
-       return redirect()->route('admin.youtubeView');
-
+        return redirect()->route('admin.youtubeView');
     }
 
     public function viewEventImage($id, Request $request)
     {
-        $images= DB::table('event_gallery')->where('event_id', '=', $id)->get();
+        $images = DB::table('event_gallery')->where('event_id', '=', $id)->get();
         // return $images;
 
-        return view('Admin.eventImage',['images'=>$images]);
+        return view('Admin.eventImage', ['images' => $images]);
     }
 
-    public function editEventImage($id, Request $request){
+    public function editEventImage($id, Request $request)
+    {
         $eventImage = DB::table('event_gallery')->where('event_image_id', '=', $id)->first();
         return view('Admin.editEventImage', ['events' => $eventImage]);
     }
 
-    public function updateEventImage($id, Request $request){
+    public function updateEventImage($id, Request $request)
+    {
 
-        if($request->hasFile('new_event_image')){
+        if ($request->hasFile('new_event_image')) {
             $display_image = $request->file('new_event_image');
             $img = imagecreatefromjpeg($display_image);
 
             header('Content-Type: image/jpg');
 
             //reduce size of tmp image and save
-            $img_save = imagejpeg($img,'images/'.$id.'.jpg', 25);
+            $img_save = imagejpeg($img, 'images/' . $id . '.jpg', 25);
         } else {
             $display_image = $request->current_image;
         }
@@ -373,8 +384,8 @@ class AdminController extends Controller
         $eventImage = DB::table('event_gallery')
             ->where('event_image_id', '=', $id)
             ->update([
-            'event_image' => $id.'.jpg'
-        ]);
+                'event_image' => $id . '.jpg'
+            ]);
 
 
         $eventImage = DB::table('event_gallery')->where('event_image_id', '=', $id)->first();
@@ -392,4 +403,41 @@ class AdminController extends Controller
         return view('Admin.addoImages');
     }
 
+    public function admissionCreation()
+    {
+        DB::table('admission')->delete();
+        DB::table('admission')->insert([
+            'header' => 'Interested? ',
+            'sub_header' => 'You can visit either our Badore or our Addo branch to pick up our application form',
+            'admission_image' => '1.jpg',
+        ]);
+
+        DB::table('admission')->insert([
+            'header' => 'Placement Test',
+            'sub_header' => 'Every applicant must write a placement test; a well designed and strucutred test for determining the class for our children.',
+            'admission_image' => '2.jpg',
+        ]);
+
+        DB::table('admission')->insert([
+            'header' => 'Required Documents',
+            'sub_header' => 'Submit all required documents. The required documents will be communicated if you reach out to our contacts.',
+            'admission_image' => '3.jpg',
+        ]);
+
+        return redirect('/');
+    }
+
+    public function increaseEventNo()
+    {
+        for ($i = 1; $i <= 8; $i++) {
+            for ($j = 0; $j < 2; $j++) {
+                DB::table('event_gallery')->insert([
+                    'event_id' => $i,
+                    'event_image' => 'media.jpg',
+                ]);
+            }
+        }
+
+        return redirect('/');
+    }
 }
