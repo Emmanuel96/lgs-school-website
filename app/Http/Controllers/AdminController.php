@@ -39,6 +39,9 @@ class AdminController extends Controller
                 'intro_text' => $request->intro_text,
                 'button_text' => $request->button_text,
             ]);
+
+        $header_data = DB::table('header')->selectRaw('*')->get();
+        return view('Admin.header', ['welcome_text' => $header_data[0]->welcome_text, 'intro_text' => $header_data[0]->intro_text, 'button_text' => $header_data[0]->button_text]);
     }
 
     public function postAbout($id, Request $request)

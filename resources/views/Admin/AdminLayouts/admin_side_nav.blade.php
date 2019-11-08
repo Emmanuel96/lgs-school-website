@@ -27,47 +27,47 @@
                   <li><a><i class="fa fa-home"></i> Header <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('admin.header')}}">Edit Header</a></li>
-                     
+
                     </ul>
                   </li>
                   <li><a><i class="fa fa-university"></i> Campus <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{!! route('admin.addo') !!}">Addo Campus</a></li>
                       <li><a href="{!! route('admin.badore') !!}">Badore Campus</a></li>
-                     
+
                     </ul>
                   </li>
                   <li ><a><i class="fa fa-calendar-o"></i> Events <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="{!! route('admin.event') !!}"> New Event</a></li>
+                    {{-- <li><a href="{!! route('admin.event') !!}"> New Event</a></li> --}}
                       <li><a href="{!! route('admin.eventView') !!}">View Events</a></li>
-                    
-                       
-                      
+
+
+
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> About <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="{!! route('admin.about') !!}">New About</a></li>
+                    {{-- <li><a href="{!! route('admin.about') !!}">New About</a></li> --}}
                       <li><a href="{!! route('admin.aboutView') !!}">View About</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-group"></i> Team <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{!! route('admin.team') !!}">New Team</a></li>
+                      {{-- <li><a href="{!! route('admin.team') !!}">New Team</a></li> --}}
                       <li><a href="{!! route('admin.teamView') !!}">View Team</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-youtube-play"></i>Youtube Channels <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{!! route('admin.youtubeNew') !!}">New Video</a></li>
+                      {{-- <li><a href="{!! route('admin.youtubeNew') !!}">New Video</a></li> --}}
                       <li><a href="{!! route('admin.youtubeView') !!}">View Videos</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-              <div class="menu_section">  
-                  
+              <div class="menu_section">
+
               </div>
 
             </div>
