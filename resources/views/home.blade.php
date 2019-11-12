@@ -990,7 +990,7 @@
     </div>
     </div>
     <!-- Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="singleImageModal" tabindex="-1" role="dialog" aria-hidden="true">
        <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -1003,42 +1003,11 @@
               <div class="col-lg-12 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h3 class="text-uppercase">Event Name</h3>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
 				  <div class= "container">
-					<div class="row">
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/01-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
+					  <div class="col-md-12 col-sm-12 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" >
 
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/02-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/03-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal">
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/04-thumbnail.jpg')}}" alt="">
-						</a>
-
-					  </div>
-					  <div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" data-toggle="modal" >
-
-						  <img class="img-fluid" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
+						  <img class="img-fluid" id ="single-image" src="{{URL::asset('images/portfolio/05-thumbnail.jpg')}}" alt="">
 						</a>
 					  </div>
 					  <div class="col-md-4 col-sm-6 portfolio-item">
@@ -1050,11 +1019,6 @@
 					  </div>
 					</div>
 				  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>27 June 1998</b></p>
-
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-calendar-check-o"></i>
-                    More Events</button>
                 </div>
               </div>
             </div>
@@ -1121,7 +1085,7 @@
             values.forEach(function(element){
                 if(element.event_id === id){
                    target.innerHTML +=  "<div class='col-md-4 col-sm-6 portfolio-item'>" +
-                                        "<a class='portfolio-link' data-toggle='modal'>" +
+                                        "<a class='portfolio-link' onClick = "+"openSingleImage('"+element.event_image+"')>" +
                                         "<img class = 'img-fluid' src = 'images/" +
                                         element.event_image +
                                         "' /> </a> </div>";
@@ -1129,6 +1093,18 @@
 
             })
         }
+
+        function openSingleImage(src){
+            // alert(" " + src + " ");
+            document.getElementById('single-image').src = src;
+            // document.getElementById('singleImageModal').classList.add('open');
+            $('#singleImageModal').modal('show');
+
+        }
+    </script>
+
+    <script>
+
     </script>
 
     <script>
