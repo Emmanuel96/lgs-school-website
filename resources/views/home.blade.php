@@ -521,7 +521,7 @@
                 Addo Road Badore, Ajah.
               </li>
               <li class="list-inline-item">
-                <a href="#">Call 07037699184</a>
+                <a href="#">Call +234-13425430/+234-13425431</a>
               </li>
             </ul>
           </div>
